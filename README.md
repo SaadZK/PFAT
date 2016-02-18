@@ -1,1 +1,1 @@
-# Prácticas de Procesamiento en formatos de aplicaciones telemáticas #
+# Prácticas de PFAT #
