@@ -1,0 +1,91 @@
+package Lexer;
+
+import Errors.LexerException;
+import Parser.sym;
+
+%%
+%{
+private java_cup.runtime.Symbol tok(int k, Object value) {
+  System.out.println("Token: " + k);
+  return new java_cup.runtime.Symbol(k, yyline, 0, value); 
+}
+%}
+
+%public
+%cup
+%line
+%yylexthrow{
+LexerException
+%yylexthrow} 
+%eofval{
+{return tok(sym.EOF, null); }
+%eofval}
+
+letters= [a-zA-Z]
+numbers= [1-9]
+
+%%
+
+and		{return tok(sym.AND, null); }
+
+or		{return tok(sym.OR, null); }
+
+not		{return tok(sym.NOT, null); }
+
+PF2016		{return tok(sym.PROG, null); }
+
+vars		{return tok(sym.VARS, null); }
+
+while		{return tok(sym.WHILE, null); }
+
+print		{return tok(sym.PRINT, null); }
+
+thenx		{return tok(sym.THENX, null); }
+
+Int2Str		{return tok(sym.INT2STR, null); }
+
+Str2Int		{return tok(sym.NOT, null); }
+
+if		{return tok(sym.IF, null); }
+
+then		{return tok(sym.THEN, null); }
+
+else		{return tok(sym.ELSE, null); }
+
+endif		{return tok(sym.ENDIF, null); }
+
+int		{return tok(sym.INT, null); }
+
+bool		{return tok(sym.TIPO, null); }
+
+string		{return tok(sym.TIPO, null); }
+
+";""		{return tok(sym.PC, null); }
+
+":="		{return tok(sym.ASOP, null); }
+
+"+"		{return tok(sym.MAS, null); }
+
+"-"		{return tok(sym.MENOS, null); }
+
+"*"		{return tok(sym.POR, null); }
+
+"/"		{return tok(sym.DIV, null); }
+
+">"		{return tok(sym.MAYORQUE, null); }
+
+"<"		{return tok(sym.MENORQUE, null); }
+
+"="		{return tok(sym.IGUALQUE, null); }
+
+"{"		{return tok(sym.ABRELLAVE, null); }
+
+"}"		{return tok(sym.CIERRALLAVE, null); }
+
+","		{return tok(sym.COMA, null); }
+
+"("		{return tok(sym.PAREN, null); }
+
+")"		{return tok(sym.TESIS, null); }
+
+"{letters}({letters|numbers})*"	{return tok(sym.IDENT, null); }
