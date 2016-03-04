@@ -1,0 +1,114 @@
+package Parser;
+
+import java_cup.runtime.*;
+import AST.*;
+
+parser code {:
+  public void syntax_error(Symbol s) {
+    report_error("Error de sintaxis en linea " + s.left, null);
+  }
+
+  public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception {
+    report_fatal_error("", null);
+  }
+:};
+
+/* Elementos terminales */
+terminal PC, ASOP, IF, THEN, ELSE, ENDIF, WHILE, PRINT, INT2STR, STR2INT, THENX, NOT, MENORQUE, MAS, MENOS, UMENOS, POR, DIV, AND, OR, IGUALQUE, MAYORQUE, PAREN, TESIS, PROG, ABRELLAVE, CIERRALLAVE, COMA, VARS;
+terminal Integer CENT, CST, CLOG, TIPO;
+terminal String IDENT;
+
+/* Elementos no terminales */
+non terminal S S;
+non terminal VDef VDef;
+non terminal Decl Decl;
+non terminal LVar LVar;
+non terminal Body Body;
+non terminal Sent Sent;
+non terminal SentSimp SentSimp;
+non terminal SentList SentList;
+non terminal Print Print;
+non terminal Asign Asign;
+non terminal Cond Cond;
+non terminal Repet Repet;
+non terminal Exp Exp;
+
+/* Orden de prioridad */
+precedence right OR;
+precedence right AND;
+precedence right NOT;
+precedence right IGUALQUE;
+precedence right MENORQUE;
+precedence right MAYORQUE;
+precedence right MAYORQUE;
+precedence right MAYORQUE;
+precedence right MAS;
+precedence right MENOS;
+precedence right POR;
+precedence right DIV;
+/* ¿Como hacemos el opuesto?... En la regla de produccion lo ponemos. */
+
+start with S;
+
+S ::= PROG IDENT:ident PAREN LVar:lvar TESIS Body:body                  {: RESULT = new Programa1(ident, lvar, body); :}
+  |   PROG IDENT:ident Body:body                                        {: RESULT = new Programa2(ident, body); :} 
+  |   PROG IDENT:ident VARS VDef:vdef Body:body                         {: RESULT = new Programa3(ident, vdef, body); :} 
+  |   PROG IDENT:ident PAREN LVar:lvar TESIS VARS VDef:vdef Body:body   {: RESULT = new Programa4(ident, lvar, vdef, body); :}
+  ;
+
+VDef ::=  Decl:decl PC            {: RESULT = new VDef2(decl); :}
+      |   Decl:decl PC VDef:vdef  {: RESULT = new VDef2(decl, vdef); :}
+      ;
+
+Decl ::= TIPO:tipo LVar:lvar  {: RESULT = new Decl(tipo, lvar); :};
+
+LVar ::=  IDENT:ident                 {: RESULT = new LVar1(ident); :}
+      |   IDENT:ident COMA LVar:lvar  {: RESULT = new LVar2(ident, lvar); :} 
+      ;
+
+Body ::= Sent:sent  {: RESULT = new Sent(sent); :};
+
+Sent ::=  SentSimp:sentsimp		                      {: RESULT = new Sent1(sentsimp); :}
+      |   ABRELLAVE SentList:sentlist CIERRALLAVE   {: RESULT = new Sent2(sentlist); :}
+      ;
+
+SentSimp ::= Asign:asign PC   {: RESULT = new SentSimp1(asign); :}
+	        |  Cond:cond        {: RESULT = new SentSimp2(cond); :}
+          |  Repet:repet      {: RESULT = new SentSimp3(repet); :}
+          |  Print:print      {: RESULT = new SentSimp4(print); :}
+          ;
+
+SentList ::=  SentSimp:sentsimp                   {: RESULT = new SentList1(sentsimp); :}
+          |   SentList:sentlist SentSimp:sentsimp {: RESULT = new SentList2(sentlist, sentsimp); :}
+          ;
+
+Print ::= Print PAREN Exp:exp TESIS {: RESULT = new Print(exp); :};
+
+Asign ::= IDENT:ident ASOP Exp:exp {: RESULT = new Asign(ident, exp); :};
+
+Cond ::=  IF Exp:exp THEN Sent:sent ENDIF                                     {: RESULT = new Cond1(exp, sent); :}
+      |   IF Exp:exp THEN Sent:sent1 ELSE Sent:sent2 ENDIF                    {: RESULT = new Cond2(exp, sent1, sent2); :}
+      |   IF Exp:exp THEN Sent:sent1 THENX Sent:sent2 ELSE Sent:sent3 ENDIF   {: RESULT = new Cond2(exp, sent1, sent2, sent3); :}
+      ;
+
+Repet ::= WHILE Exp:exp Sent:sent {: RESULT = new Repet(exp, sent); :};
+
+Exp ::= CENT:ent                    {: RESULT = new Exp1_Entero(ent.intValue()); :} /* Se supone que CENT devuelve un int... */
+    |   CST:str                     {: RESULT = new Exp2_String(str); :}
+    |   CLOG:bool                   {: RESULT = new Exp3_Boolean(bool.intValue()); :} /* Guardamos el int del mapeo? unk no existe en Java... */
+    |   IDENT:ident                 {: RESULT = new Exp4_Ident(ident); :}
+    |   PAREN Exp:exp TESIS         {: RESULT = new Exp5_Parentesis(exp); :}
+    |   Exp:exp1 MAS Exp:exp2       {: RESULT = new Exp6_Suma(exp1, exp2); :} /* ¿Como saber si es de tipo int o string? ¿Se hace dentro de la clase? */
+    |   Exp:exp1 MENOS Exp:exp2     {: RESULT = new Exp7_Resta(exp1, exp2); :}
+    |   Exp:exp1 POR Exp:exp2       {: RESULT = new Exp8_Multiplicacion(exp1, exp2); :}
+    |   Exp:exp1 DIV Exp:exp2       {: RESULT = new Exp9_Division(exp1, exp2); :}
+    |   MENOS Exp:exp               {: RESULT = new Exp10_Opuesto(exp); :}
+    |   STR2INT PAREN Exp:exp TESIS {: RESULT = new Exp11_Str2Int(exp); :}
+    |   INT2STR PAREN Exp:exp TESIS {: RESULT = new Exp12_Int2Str(exp); :}
+    |   Exp:exp1 OR Exp:exp2        {: RESULT = new Exp13_Or(exp1, exp2); :}
+    |   Exp:exp1 AND Exp:exp2       {: RESULT = new Exp14_And(exp1, exp2); :}
+    |   NOT Exp:exp                 {: RESULT = new Exp15_Not(exp); :}
+    |   Exp:exp1 IGUALQUE Exp:exp2  {: RESULT = new Exp16_Igual(exp1, exp2); :} /* ¿Como saber que son del mismo tipo? */
+    |   Exp:exp1 MENORQUE Exp:exp2  {: RESULT = new Exp17_Menor(exp1, exp2); :} /* ¿Como saber que son de tipo int? */
+    |   Exp:exp1 MAYORQUE Exp:exp2  {: RESULT = new Exp18_Mayor(exp1, exp2); :}
+    ;
