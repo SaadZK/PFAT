@@ -71,16 +71,16 @@ P = {
 ### Mapeo de variables ###
 | Variable  | Valor        |
 | --------- | -------------|
-| int 	 	| Integer(*0*) |
-| bool 	 	| Integer(*1*) |
-| string 	| Integer(*2*) |
+| int 	 	| Integer(**0**) |
+| bool 	 	| Integer(**1**) |
+| string 	| Integer(**2**) |
 
 ### Mapeo de bool ###
 | Variable  | Valor        |
 | --------- | -------------|
-| true 	 	| Integer(*0*) |
-| false 	| Integer(*1*) |
-| unk 		| Integer(*2*) |
+| true 	 	| Integer(**0**) |
+| false 	| Integer(**1**) |
+| unk 		| Integer(**2**) |
 
 ### Comandos para compilar ###
 ```
