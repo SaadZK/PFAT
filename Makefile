@@ -1,65 +1,63 @@
+# java -cp CUP/:Compiled/ Main Ejemplos/Ejem1/ejem1.prg
+
 # Definimos variables de compilación
 J = java
 JC = javac
-JFLAGS = -g -d
 JLEX = JLex
 CUP = CUP
 LEXER = Lexer
 PARSER = Parser
-CLASSPATH = -cp $(PWD)/:$(JLEX)/:$(CUP)/:Compiled/
-LEXER_CREATED = Yylex.java
-PARSER_CREATED = parser.java sym.java
-
-# Declaramos classpath si no está definido.
-#ifndef CLASSPATH
-#export CLASSPATH = $(PWD)
-#endif
+ERRORS = Errors
+AST = AST
+COMPILED = Compiled
+CLASSPATH = -cp $(CUP)/:$(COMPILED)/
+EJEMPLOS = Ejemplos
 
 # PHONY, evitando conflicto de nombres
-.PHONY: all clean parser
+.PHONY: all errors ast clean parser lexer
 
-# Suffixes for Java compilation
-.SUFFIXES: .java .class
+# Orden de compilación según se pide en la práctica:
+# 	1 : Clases del paquete Errors.
+# 	2 : Clases del paquete AST que usted debe desarrollar.
+# 	3 : Clases parser y sym generadas por CUP.
+# 	4 : Clase Yylex generada por JLex.
+# 	5 : Clase Main que se proporciona.
 
-# Here is our target entry for creating .class files from .java files 
-# This is a target entry that uses the suffix rule syntax:
-#	DSTS:
-#		rule
-#  'TS' is the suffix of the target file, 'DS' is the suffix of the dependency 
-#  file, and 'rule'  is the rule for building a target	
-# '$*' is a built-in macro that gets the basename of the current target 
-# Remember that there must be a < tab > before the command line ('rule') 
-#
-.java.class:
-	$(JC) $(JFLAGS) $*.java
+# Proceso completo!
+all: errors ast parser lexer main
 
-# CLASSES is a macro consisting of multiple words (one for each java source file) using '\'.
-CLASSES = Main.java
+# Compilamos Errors.
+errors:
+	mkdir -p $(COMPILED)/$(ERRORS)
+	$(JC) -d $(COMPILED) $(ERRORS)/*.java
 
-# the default make target entry
-default: classes
-
-# This target entry uses Suffix Replacement within a macro: 
-# $(name:string1=string2)
-# 	In the words in the macro named 'name' replace 'string1' with 'string2'
-# Below we are replacing the suffix .java of all words in the macro CLASSES 
-# with the .class suffix
-classes: $(CLASSES:.java=.class)
-
-# Preparamos JLex - Análisis léxico.
-lexer:
-	$(J) $(JLEX).Main Lexer/Yylex
-	mv $(LEXER_CREATED) $(LEXER)
+ast:
+	$(JC) -d $(COMPILED) $(AST)/*.java
 
 # Preparamos CUP - Análisis sintáctico.
 parser:
-	$(J) -cp ./CUP java_cup.Main Parser/parser
-	mv $(PARSER_CREATED) $(PARSER)
+	mkdir -p $(COMPILED)/$(PARSER)
+	$(J) $(CLASSPATH) java_cup.Main Parser/parser
+	mv parser.java sym.java $(PARSER)
+	$(JC) $(CLASSPATH) -d $(COMPILED) $(PARSER)/parser.java $(PARSER)/sym.java
 
+# Preparamos JLex - Análisis léxico.
+lexer:
+	$(J) $(JLEX).Main $(LEXER)/Yylex
+	$(JC) $(CLASSPATH) -d $(COMPILED) $(LEXER)/Yylex.java
+
+# Compilamos y ejecutamos el Main. GO! Modificar a mano el fichero.
 main:
-	$(JC) $(CLASSPATH) Main.java
+	$(JC) $(CLASSPATH) -d $(COMPILED) Main.java
+	#$(J) $(CLASSPATH) Main Ejemplos/Ejem1/ejem1.prg
 
 # RM is a predefined macro in make (RM = rm -f)
 clean:
 	#$(RM) *.class
-	$(RM) $(PARSER)/$(PARSER_CREATED)
+	$(RM) $(PARSER)/parser.java $(PARSER)/sym.java
+	$(RM) $(LEXER)/Yylex.java
+	$(RM) -r $(COMPILED)
+
+# [EXTRA] Compilamos JLex solo la primera vez porque nos descargamos solo el código fuente.
+#init:
+#	$(JC) $(JLEX)/Main.java

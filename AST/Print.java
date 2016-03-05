@@ -1,3 +1,5 @@
+package AST;
+
 public class Print {
 	public final Exp exp;
 

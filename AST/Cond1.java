@@ -1,3 +1,5 @@
+package AST;
+
 public class Cond1 implements Cond {
 	public final Exp exp;
 	public final Sent sent;

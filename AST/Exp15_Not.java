@@ -1,3 +1,5 @@
+package AST;
+
 public class Exp15_Not implements Exp {
 	public final Exp exp;
 

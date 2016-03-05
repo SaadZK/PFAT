@@ -1,3 +1,5 @@
+package AST;
+
 public class Exp17_Menor implements Exp {
 	public final Exp exp1;
 	public final Exp exp2;

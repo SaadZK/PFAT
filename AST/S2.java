@@ -1,8 +1,10 @@
-public class Programa2 implements Programa {
+package AST;
+
+public class S2 implements S {
 	public final String ident;
 	public final Body body;
 
-	public Programa2(String ident, Body body) {
+	public S2(String ident, Body body) {
 		this.ident = ident;
 		this.body = body;
 	}

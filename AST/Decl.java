@@ -1,3 +1,5 @@
+package AST;
+
 public class Decl {
 	public final int tipo;
 	public final LVar lvar;

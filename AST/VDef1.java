@@ -1,3 +1,5 @@
+package AST;
+
 public class VDef1 implements VDef {
 	public final Decl decl;
 

@@ -1,3 +1,5 @@
+package AST;
+
 public class Exp13_Or implements Exp {
 	public final Exp exp1;
 	public final Exp exp2;

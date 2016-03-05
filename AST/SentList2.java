@@ -1,3 +1,5 @@
+package AST;
+
 public class SentList2 implements SentList {
 	public final SentList sentlist;
 	public final SentSimp sentsimp;

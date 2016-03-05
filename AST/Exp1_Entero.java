@@ -1,3 +1,5 @@
+package AST;
+
 public class Exp1_Entero implements Exp {
 	public final int valor;
 

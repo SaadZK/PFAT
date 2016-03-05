@@ -1,3 +1,5 @@
+package AST;
+
 public class Sent2 implements Sent {
 	public final SentList sentlist;
 

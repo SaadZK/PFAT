@@ -1,3 +1,5 @@
+package AST;
+
 public class Exp18_Mayor implements Exp {
 	public final Exp exp1;
 	public final Exp exp2;

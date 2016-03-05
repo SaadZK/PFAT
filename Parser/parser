@@ -14,9 +14,9 @@ parser code {:
 :};
 
 /* Elementos terminales */
-terminal PC, ASOP, IF, THEN, ELSE, ENDIF, WHILE, PRINT, INT2STR, STR2INT, THENX, NOT, MENORQUE, MAS, MENOS, UMENOS, POR, DIV, AND, OR, IGUALQUE, MAYORQUE, PAREN, TESIS, PROG, ABRELLAVE, CIERRALLAVE, COMA, VARS;
-terminal Integer CENT, CST, CLOG, TIPO;
-terminal String IDENT;
+terminal PC, ASOP, IF, THEN, ELSE, ENDIF, WHILE, PRINT, INT2STR, STR2INT, THENX, NOT, MENORQUE, MAS, MENOS, POR, DIV, AND, OR, IGUALQUE, MAYORQUE, PAREN, TESIS, PROG, ABRELLAVE, CIERRALLAVE, COMA, VARS;
+terminal Integer CENT, CLOG, TIPO;
+terminal String IDENT, CST;
 
 /* Elementos no terminales */
 non terminal S S;
@@ -50,13 +50,13 @@ precedence right DIV;
 
 start with S;
 
-S ::= PROG IDENT:ident PAREN LVar:lvar TESIS Body:body                  {: RESULT = new Programa1(ident, lvar, body); :}
-  |   PROG IDENT:ident Body:body                                        {: RESULT = new Programa2(ident, body); :} 
-  |   PROG IDENT:ident VARS VDef:vdef Body:body                         {: RESULT = new Programa3(ident, vdef, body); :} 
-  |   PROG IDENT:ident PAREN LVar:lvar TESIS VARS VDef:vdef Body:body   {: RESULT = new Programa4(ident, lvar, vdef, body); :}
+S ::= PROG IDENT:ident PAREN LVar:lvar TESIS Body:body                  {: RESULT = new S1(ident, lvar, body); :}
+  |   PROG IDENT:ident Body:body                                        {: RESULT = new S2(ident, body); :} 
+  |   PROG IDENT:ident VARS VDef:vdef Body:body                         {: RESULT = new S3(ident, vdef, body); :} 
+  |   PROG IDENT:ident PAREN LVar:lvar TESIS VARS VDef:vdef Body:body   {: RESULT = new S4(ident, lvar, vdef, body); :}
   ;
 
-VDef ::=  Decl:decl PC            {: RESULT = new VDef2(decl); :}
+VDef ::=  Decl:decl PC            {: RESULT = new VDef1(decl); :}
       |   Decl:decl PC VDef:vdef  {: RESULT = new VDef2(decl, vdef); :}
       ;
 
@@ -66,9 +66,9 @@ LVar ::=  IDENT:ident                 {: RESULT = new LVar1(ident); :}
       |   IDENT:ident COMA LVar:lvar  {: RESULT = new LVar2(ident, lvar); :} 
       ;
 
-Body ::= Sent:sent  {: RESULT = new Sent(sent); :};
+Body ::= Sent:sent  {: RESULT = new Body(sent); :};
 
-Sent ::=  SentSimp:sentsimp		                      {: RESULT = new Sent1(sentsimp); :}
+Sent ::=  SentSimp:sentsimp                         {: RESULT = new Sent1(sentsimp); :}
       |   ABRELLAVE SentList:sentlist CIERRALLAVE   {: RESULT = new Sent2(sentlist); :}
       ;
 
@@ -82,13 +82,13 @@ SentList ::=  SentSimp:sentsimp                   {: RESULT = new SentList1(sent
           |   SentList:sentlist SentSimp:sentsimp {: RESULT = new SentList2(sentlist, sentsimp); :}
           ;
 
-Print ::= Print PAREN Exp:exp TESIS {: RESULT = new Print(exp); :};
+Print ::= PRINT PAREN Exp:exp TESIS {: RESULT = new Print(exp); :};
 
 Asign ::= IDENT:ident ASOP Exp:exp {: RESULT = new Asign(ident, exp); :};
 
 Cond ::=  IF Exp:exp THEN Sent:sent ENDIF                                     {: RESULT = new Cond1(exp, sent); :}
       |   IF Exp:exp THEN Sent:sent1 ELSE Sent:sent2 ENDIF                    {: RESULT = new Cond2(exp, sent1, sent2); :}
-      |   IF Exp:exp THEN Sent:sent1 THENX Sent:sent2 ELSE Sent:sent3 ENDIF   {: RESULT = new Cond2(exp, sent1, sent2, sent3); :}
+      |   IF Exp:exp THEN Sent:sent1 THENX Sent:sent2 ELSE Sent:sent3 ENDIF   {: RESULT = new Cond3(exp, sent1, sent2, sent3); :}
       ;
 
 Repet ::= WHILE Exp:exp Sent:sent {: RESULT = new Repet(exp, sent); :};

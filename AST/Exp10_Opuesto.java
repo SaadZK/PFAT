@@ -1,3 +1,5 @@
+package AST;
+
 public class Exp10_Opuesto implements Exp {
 	public final Exp exp;
 

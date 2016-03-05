@@ -1,3 +1,5 @@
+package AST;
+
 public class SentSimp1 implements SentSimp {
 	public final Asign asign;
 

@@ -1,3 +1,5 @@
+package AST;
+
 public class LVar1 implements LVar {
 	public final String ident;
 
