@@ -71,16 +71,16 @@ P = {
 ### Mapeo de variables ###
 | Variable  | Valor        |
 | --------- | -------------|
-| int 	 	| Integer -> 0 |
-| bool 	 	| Integer -> 1 |
-| string 	| Integer -> 2 |
+| int 	 	| Integer(*0*) |
+| bool 	 	| Integer(*1*) |
+| string 	| Integer(*2*) |
 
 ### Mapeo de bool ###
 | Variable  | Valor        |
 | --------- | -------------|
-| true 	 	| Integer -> 0 |
-| false 	| Integer -> 1 |
-| unk 		| Integer -> 2 |
+| true 	 	| Integer(*0*) |
+| false 	| Integer(*1*) |
+| unk 		| Integer(*2*) |
 
 ### Comandos para compilar ###
 ```
@@ -102,7 +102,7 @@ javac -cp CUP/:Compiled/ -d Compiled Parser/parser.java Parser/sym.java
 java JLex.Main Lexer/Yylex
 javac -cp CUP/:Compiled/ -d Compiled Lexer/Yylex.java
 
-# Main: IMPORTANTE!
+# Main
 javac -cp CUP/:Compiled/ -d Compiled Main.java
 java -cp CUP/:Compiled/ Main Ejemplos/Ejem1/ejem1.prg
 ```

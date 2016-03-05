@@ -102,4 +102,4 @@ unk			{ return tok(sym.CLOG, new Integer(2)); }
 
 (" "|\n|\t|\r)+					{ }
 
-.								{ System.out.println("Caracter Ilegal en linea " + yyline);}
+.								{ System.out.println("Caracter ilegal en linea " + yyline);}

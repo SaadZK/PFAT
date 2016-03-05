@@ -429,7 +429,7 @@ LexerException
 					case -4:
 						break;
 					case 4:
-						{ System.out.println("Caracter Ilegal en linea " + yyline);}
+						{ System.out.println("Caracter ilegal en linea " + yyline);}
 					case -5:
 						break;
 					case 5:
@@ -581,7 +581,7 @@ LexerException
 					case -42:
 						break;
 					case 43:
-						{ System.out.println("Caracter Ilegal en linea " + yyline);}
+						{ System.out.println("Caracter ilegal en linea " + yyline);}
 					case -43:
 						break;
 					case 45:
@@ -589,7 +589,7 @@ LexerException
 					case -44:
 						break;
 					case 46:
-						{ System.out.println("Caracter Ilegal en linea " + yyline);}
+						{ System.out.println("Caracter ilegal en linea " + yyline);}
 					case -45:
 						break;
 					case 48:
