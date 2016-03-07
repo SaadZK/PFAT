@@ -79,7 +79,7 @@ SentSimp ::= Asign:asign PC   {: RESULT = new SentSimp1(asign); :}
           ;
 
 SentList ::=  SentSimp:sentsimp                   {: RESULT = new SentList1(sentsimp); :}
-          |   SentList:sentlist SentSimp:sentsimp {: RESULT = new SentList2(sentlist, sentsimp); :}
+          |   SentSimp:sentsimp SentList:sentlist {: RESULT = new SentList2(sentsimp, sentlist); :}
           ;
 
 Print ::= PRINT PAREN Exp:exp TESIS {: RESULT = new Print(exp); :};
