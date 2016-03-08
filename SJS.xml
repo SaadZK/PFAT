@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Grupo nick="SJS">
+  <Alumno>
+    <NIU><![CDATA[100305296]]></NIU>
+    <Apellidos><![CDATA[POLO GARCIA]]></Apellidos>
+    <Nombre><![CDATA[JESUS ALBERTO]]></Nombre>
+    <GrupoReducido><![CDATA[g71]]></GrupoReducido>
+  </Alumno>
+  <Alumno>
+    <NIU><![CDATA[100304607]]></NIU>
+    <Apellidos><![CDATA[CALDERON PEREZ-LOZAO]]></Apellidos>
+    <Nombre><![CDATA[SERGIO]]></Nombre>
+    <GrupoReducido><![CDATA[g71]]></GrupoReducido>
+  </Alumno>
+  <Alumno>
+    <NIU><![CDATA[100318335]]></NIU>
+    <Apellidos><![CDATA[ZIYAD KHALID]]></Apellidos>
+    <Nombre><![CDATA[SAAD]]></Nombre>
+    <GrupoReducido><![CDATA[g71]]></GrupoReducido>
+  </Alumno>
+</Grupo>
