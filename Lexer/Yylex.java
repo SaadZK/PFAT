@@ -14,10 +14,10 @@ public class Yylex implements java_cup.runtime.Scanner {
 	private final int YY_BOL = 128;
 	private final int YY_EOF = 129;
 
-private java_cup.runtime.Symbol tok(int k, Object value) {
-	System.out.println("Token: " + k);
-	return new java_cup.runtime.Symbol(k, yyline, 0, value); 
-}
+	private java_cup.runtime.Symbol tok(int k, Object value) {
+		System.out.println("Token: " + k);
+		return new java_cup.runtime.Symbol(k, yyline, 0, value); 
+	}
 	private java.io.BufferedReader yy_reader;
 	private int yy_buffer_index;
 	private int yy_buffer_read;
@@ -253,10 +253,10 @@ private java_cup.runtime.Symbol tok(int k, Object value) {
 		/* 41 */ YY_NOT_ACCEPT,
 		/* 42 */ YY_NO_ANCHOR,
 		/* 43 */ YY_NO_ANCHOR,
-		/* 44 */ YY_NOT_ACCEPT,
+		/* 44 */ YY_NO_ANCHOR,
 		/* 45 */ YY_NO_ANCHOR,
 		/* 46 */ YY_NO_ANCHOR,
-		/* 47 */ YY_NOT_ACCEPT,
+		/* 47 */ YY_NO_ANCHOR,
 		/* 48 */ YY_NO_ANCHOR,
 		/* 49 */ YY_NO_ANCHOR,
 		/* 50 */ YY_NO_ANCHOR,
@@ -322,55 +322,51 @@ private java_cup.runtime.Symbol tok(int k, Object value) {
 ":2,0:2")[0];
 
 	private int yy_rmap[] = unpackFromString(1,105,
-"0,1,2,3,1:14,4,5:2,1:2,5:5,6,5:8,1,5:3,7,8,9,10,11,7,12,13,5,14,15,16,17,18" +
-",19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43" +
-",44,45,46,47,48,49,50,51,52,5,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67")[0];
+"0,1,2,3,1,4,1:12,5,6:2,1:2,6:5,7,6:12,8,9,8,10,1,11,6,12,13,14,15,16,17,18," +
+"19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43," +
+"44,45,46,47,48,49,50,6,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67")[0];
 
 	private int yy_nxt[][] = unpackFromString(68,48,
-"1,2,83,89,42,89,92,94,89,3,4,3:2,95,96,97,89,45,89,98,99,89,100,101,102,103" +
-",89,104,89,5,43,6,7,8,9,10,11,12,13,14,15,16,17,89,3,46,4,18,-1:49,89,48,89" +
-":6,49,-1,49:2,89:16,-1:14,89,49,-1:12,3,-1,3:2,-1:31,3,-1:50,18,-1,89:8,49," +
-"-1,49:2,89:16,-1:14,89,49,-1:4,89:8,49,-1,49:2,89:8,32,89:7,-1:14,89,49,-1:" +
-"4,41:44,22,41:2,-1,89:4,19,89:3,49,-1,49:2,89:16,-1:14,89,49,-1:34,21,-1:27" +
-",47,-1:37,89,55,89:6,49,-1,49:2,89:11,20,89:4,-1:14,89,49,-1:15,37,-1:36,89" +
-":2,23,89:5,49,-1,49:2,89:16,-1:14,89,49,-1:4,89:5,24,89:2,49,-1,49:2,89:16," +
-"-1:14,89,49,-1:4,89:8,49,-1,49:2,89:14,63,89,-1:14,89,49,-1:4,89:8,49,-1,49" +
-":2,89:6,64,89:9,-1:14,89,49,-1:4,89:4,66,89:3,49,-1,49:2,89:16,-1:14,89,49," +
-"-1:4,89:8,49,-1,49:2,89:4,87,89:11,-1:14,89,49,-1:4,89:5,25,89:2,49,-1,49:2" +
-",89:16,-1:14,89,49,-1:4,89:2,67,89:5,49,-1,49:2,89:16,-1:14,89,49,-1:4,89:8" +
-",49,-1,49:2,89,68,89:14,-1:14,89,49,-1:4,89:5,90,89:2,49,-1,49:2,89:16,-1:1" +
-"4,89,49,-1:4,89:4,93,89:3,49,-1,49:2,89:16,-1:14,89,49,-1:4,89:8,49,-1,49:2" +
-",89:5,70,89:10,-1:14,89,49,-1:4,89:3,71,89:4,49,-1,49:2,89:16,-1:14,89,49,-" +
-"1:4,89:8,49,-1,49:2,89:15,26,-1:14,89,49,-1:4,89:8,49,-1,49:2,89:6,27,89:9," +
-"-1:14,89,49,-1:4,89,28,89:6,49,-1,49:2,89:16,-1:14,89,49,-1:4,89:8,49,44,49" +
-":2,89:16,-1:14,89,49,-1:4,89:8,49,-1,49:2,89,29,89:14,-1:14,89,49,-1:4,89:8" +
-",49,-1,49:2,89:4,73,89:11,-1:14,89,49,-1:4,89:8,49,-1,49:2,89:6,30,89:9,-1:" +
-"14,89,49,-1:4,89,74,89:6,49,-1,49:2,89:16,-1:14,89,49,-1:4,89:8,49,-1,49:2," +
-"89,77,89:14,-1:14,89,49,-1:4,89:8,49,-1,49:2,89:5,31,89:10,-1:14,89,49,-1:4" +
-",89:8,49,-1,49:2,89:6,33,89:9,-1:14,89,49,-1:4,89:8,49,-1,49:2,89:11,34,89:" +
-"4,-1:14,89,49,-1:4,89:5,35,89:2,49,-1,49:2,89:16,-1:14,89,49,-1:4,89:8,49,-" +
-"1,49:2,89:10,79,89:5,-1:14,89,49,-1:4,89:8,49,-1,49:2,89:9,80,89:6,-1:14,89" +
-",49,-1:4,89:8,49,-1,49:2,89:6,36,89:9,-1:14,89,49,-1:4,89:8,49,-1,49:2,89:1" +
-"3,38,89:2,-1:14,89,49,-1:4,89:5,81,89:2,49,-1,49:2,89:16,-1:14,89,49,-1:4,8" +
-"9,82,89:6,49,-1,49:2,89:16,-1:14,89,49,-1:4,89:4,39,89:3,49,-1,49:2,89:16,-" +
-"1:14,89,49,-1:4,89:5,40,89:2,49,-1,49:2,89:16,-1:14,89,49,-1:4,89:3,50,89:4" +
-",49,-1,49:2,89:16,-1:14,89,49,-1:4,89:8,65,-1,49:2,89:16,-1:14,89,49,-1:4,8" +
-"9:4,91,89:3,49,-1,49:2,89:16,-1:14,89,49,-1:4,89:8,49,-1,49:2,89:4,69,89:11" +
-",-1:14,89,49,-1:4,89:8,49,-1,49:2,89:5,72,89:10,-1:14,89,49,-1:4,89,78,89:6" +
-",49,-1,49:2,89:16,-1:14,89,49,-1:4,89:8,75,-1,49:2,89:16,-1:14,89,49,-1:4,8" +
-"9:8,49,-1,49:2,89:4,88,89:11,-1:14,89,49,-1:4,89:4,51,89:3,49,-1,49:2,89:3," +
-"52,89:12,-1:14,89,49,-1:4,89:8,76,-1,49:2,89:16,-1:14,89,49,-1:4,89:7,84,49" +
-",-1,49:2,89:16,-1:14,89,49,-1:4,53,89:7,49,-1,49:2,89:16,-1:14,89,49,-1:4,8" +
-"9:5,85,89:2,49,-1,49:2,89:16,-1:14,89,49,-1:4,89:8,49,-1,49:2,89:3,54,89:12" +
-",-1:14,89,49,-1:4,89,56,89:6,49,-1,49:2,89:5,57,89:10,-1:14,89,49,-1:4,89:4" +
-",86,89:3,49,-1,49:2,89:16,-1:14,89,49,-1:4,89,58,89:6,49,-1,49:2,89:16,-1:1" +
-"4,89,49,-1:4,89:5,59,89:2,49,-1,49:2,89:16,-1:14,89,49,-1:4,60,89:7,49,-1,4" +
-"9:2,89:16,-1:14,89,49,-1:4,89:3,61,89:4,49,-1,49:2,89:16,-1:14,89,49,-1:4,8" +
-"9,62,89:6,49,-1,49:2,89:16,-1:14,89,49,-1:3");
+"1,2,81,87,42,87,90,92,87,3:4,93,94,95,87,44,87,96,97,87,98,99,100,101,87,10" +
+"2,87,4,5,6,7,8,9,10,11,12,13,14,15,16,17,87,3,43,45,18,-1:49,87,46,87:6,47:" +
+"4,87:16,-1:14,87,47,-1:12,3:4,-1:31,3,-1:34,21,-1:63,18,-1,87:8,47:4,87:16," +
+"-1:14,87,47,-1:4,87:8,47:4,87:8,32,87:7,-1:14,87,47,-1:4,41:44,22,41:2,-1,8" +
+"7:4,19,87:3,47:4,87:16,-1:14,87,47,-1:4,87,53,87:6,47:4,87:11,20,87:4,-1:14" +
+",87,47,-1:4,87:2,23,87:5,47:4,87:16,-1:14,87,47,-1:4,87:5,24,87:2,47:4,87:1" +
+"6,-1:14,87,47,-1:4,87:8,47:4,87:14,61,87,-1:14,87,47,-1:4,87:8,47:4,87:6,62" +
+",87:9,-1:14,87,47,-1:4,87:4,63,87:3,47:4,87:16,-1:14,87,47,-1:4,87:8,47:4,8" +
+"7:4,85,87:11,-1:14,87,47,-1:4,87:5,25,87:2,47:4,87:16,-1:14,87,47,-1:4,87:2" +
+",64,87:5,47:4,87:16,-1:14,87,47,-1:4,87:8,47:4,87,65,87:14,-1:14,87,47,-1:4" +
+",87:5,82,87:2,47:4,87:16,-1:14,87,47,-1:4,87:4,88,87:3,47:4,87:16,-1:14,87," +
+"47,-1:4,87:8,47:4,87:5,67,87:10,-1:14,87,47,-1:4,87:3,68,87:4,47:4,87:16,-1" +
+":14,87,47,-1:4,87:8,47:4,87:15,26,-1:14,87,47,-1:4,87:8,47:4,87:6,27,87:9,-" +
+"1:14,87,47,-1:4,87,28,87:6,47:4,87:16,-1:14,87,47,-1:4,87:8,47:4,87,29,87:1" +
+"4,-1:14,87,47,-1:4,87:8,47:4,87:4,70,87:11,-1:14,87,47,-1:4,87:8,47:4,87:6," +
+"30,87:9,-1:14,87,47,-1:4,87,71,87:6,47:4,87:16,-1:14,87,47,-1:4,87:8,47:4,8" +
+"7,74,87:14,-1:14,87,47,-1:4,87:8,47:4,87:5,31,87:10,-1:14,87,47,-1:4,87:8,4" +
+"7:4,87:6,33,87:9,-1:14,87,47,-1:4,87:8,47:4,87:11,34,87:4,-1:14,87,47,-1:4," +
+"87:5,35,87:2,47:4,87:16,-1:14,87,47,-1:4,87:8,47:4,87:10,77,87:5,-1:14,87,4" +
+"7,-1:4,87:8,47:4,87:9,78,87:6,-1:14,87,47,-1:4,87:8,47:4,87:6,36,87:9,-1:14" +
+",87,47,-1:4,87:8,47:3,37,87:16,-1:14,87,47,-1:4,87:8,47:4,87:13,38,87:2,-1:" +
+"14,87,47,-1:4,87:5,79,87:2,47:4,87:16,-1:14,87,47,-1:4,87,80,87:6,47:4,87:1" +
+"6,-1:14,87,47,-1:4,87:4,39,87:3,47:4,87:16,-1:14,87,47,-1:4,87:5,40,87:2,47" +
+":4,87:16,-1:14,87,47,-1:4,87:3,48,87:4,47:4,87:16,-1:14,87,47,-1:4,87:8,72," +
+"47:3,87:16,-1:14,87,47,-1:4,87:4,89,87:3,47:4,87:16,-1:14,87,47,-1:4,87:8,4" +
+"7:4,87:4,66,87:11,-1:14,87,47,-1:4,87:8,47:4,87:5,69,87:10,-1:14,87,47,-1:4" +
+",87,76,87:6,47:4,87:16,-1:14,87,47,-1:4,87:8,73,47:3,87:16,-1:14,87,47,-1:4" +
+",87:8,47:4,87:4,86,87:11,-1:14,87,47,-1:4,87:4,49,87:3,47:4,87:3,50,87:12,-" +
+"1:14,87,47,-1:4,87:8,47:2,75,47,87:16,-1:14,87,47,-1:4,87:7,104,47:4,87:16," +
+"-1:14,87,47,-1:4,51,87:7,47:4,87:16,-1:14,87,47,-1:4,87:5,83,87:2,47:4,87:1" +
+"6,-1:14,87,47,-1:4,87:8,47:4,87:3,52,87:12,-1:14,87,47,-1:4,87,54,87:6,47:4" +
+",87:5,55,87:10,-1:14,87,47,-1:4,87:4,84,87:3,47:4,87:16,-1:14,87,47,-1:4,87" +
+",56,87:6,47:4,87:16,-1:14,87,47,-1:4,87:5,57,87:2,47:4,87:16,-1:14,87,47,-1" +
+":4,58,87:7,47:4,87:16,-1:14,87,47,-1:4,87:3,59,87:4,47:4,87:16,-1:14,87,47," +
+"-1:4,87,60,87:6,47:4,87:16,-1:14,87,47,-1:4,87:8,47,91,47:2,87:16,-1:14,87," +
+"47,-1:4,87:8,103,47:3,87:16,-1:14,87,47,-1:3");
 
 	public java_cup.runtime.Symbol next_token ()
 		throws java.io.IOException, 
-LexerException
+	LexerException
 
 		{
 		int yy_lookahead;
@@ -394,7 +390,7 @@ LexerException
 			yy_next_state = yy_nxt[yy_rmap[yy_state]][yy_cmap[yy_lookahead]];
 			if (YY_EOF == yy_lookahead && true == yy_initial) {
 
-{ return tok(sym.EOF, null); }
+	{ return tok(sym.EOF, null); }
 			}
 			if (YY_F != yy_next_state) {
 				yy_state = yy_next_state;
@@ -429,11 +425,11 @@ LexerException
 					case -4:
 						break;
 					case 4:
-						{ System.out.println("Caracter ilegal en linea " + yyline);}
+						{ return tok(sym.PC, null); }
 					case -5:
 						break;
 					case 5:
-						{ return tok(sym.PC, null); }
+						{ throw new LexerException("Caracter ilegal en linea " + yyline);}
 					case -6:
 						break;
 					case 6:
@@ -581,244 +577,252 @@ LexerException
 					case -42:
 						break;
 					case 43:
-						{ System.out.println("Caracter ilegal en linea " + yyline);}
+						{ throw new LexerException("Caracter ilegal en linea " + yyline);}
 					case -43:
 						break;
-					case 45:
+					case 44:
 						{ return tok(sym.IDENT, yytext()); }
 					case -44:
 						break;
-					case 46:
-						{ System.out.println("Caracter ilegal en linea " + yyline);}
+					case 45:
+						{ throw new LexerException("Caracter ilegal en linea " + yyline);}
 					case -45:
 						break;
-					case 48:
+					case 46:
 						{ return tok(sym.IDENT, yytext()); }
 					case -46:
 						break;
-					case 49:
+					case 47:
 						{ return tok(sym.IDENT, yytext()); }
 					case -47:
 						break;
-					case 50:
+					case 48:
 						{ return tok(sym.IDENT, yytext()); }
 					case -48:
 						break;
-					case 51:
+					case 49:
 						{ return tok(sym.IDENT, yytext()); }
 					case -49:
 						break;
-					case 52:
+					case 50:
 						{ return tok(sym.IDENT, yytext()); }
 					case -50:
 						break;
-					case 53:
+					case 51:
 						{ return tok(sym.IDENT, yytext()); }
 					case -51:
 						break;
-					case 54:
+					case 52:
 						{ return tok(sym.IDENT, yytext()); }
 					case -52:
 						break;
-					case 55:
+					case 53:
 						{ return tok(sym.IDENT, yytext()); }
 					case -53:
 						break;
-					case 56:
+					case 54:
 						{ return tok(sym.IDENT, yytext()); }
 					case -54:
 						break;
-					case 57:
+					case 55:
 						{ return tok(sym.IDENT, yytext()); }
 					case -55:
 						break;
-					case 58:
+					case 56:
 						{ return tok(sym.IDENT, yytext()); }
 					case -56:
 						break;
-					case 59:
+					case 57:
 						{ return tok(sym.IDENT, yytext()); }
 					case -57:
 						break;
-					case 60:
+					case 58:
 						{ return tok(sym.IDENT, yytext()); }
 					case -58:
 						break;
-					case 61:
+					case 59:
 						{ return tok(sym.IDENT, yytext()); }
 					case -59:
 						break;
-					case 62:
+					case 60:
 						{ return tok(sym.IDENT, yytext()); }
 					case -60:
 						break;
-					case 63:
+					case 61:
 						{ return tok(sym.IDENT, yytext()); }
 					case -61:
 						break;
-					case 64:
+					case 62:
 						{ return tok(sym.IDENT, yytext()); }
 					case -62:
 						break;
-					case 65:
+					case 63:
 						{ return tok(sym.IDENT, yytext()); }
 					case -63:
 						break;
-					case 66:
+					case 64:
 						{ return tok(sym.IDENT, yytext()); }
 					case -64:
 						break;
-					case 67:
+					case 65:
 						{ return tok(sym.IDENT, yytext()); }
 					case -65:
 						break;
-					case 68:
+					case 66:
 						{ return tok(sym.IDENT, yytext()); }
 					case -66:
 						break;
-					case 69:
+					case 67:
 						{ return tok(sym.IDENT, yytext()); }
 					case -67:
 						break;
-					case 70:
+					case 68:
 						{ return tok(sym.IDENT, yytext()); }
 					case -68:
 						break;
-					case 71:
+					case 69:
 						{ return tok(sym.IDENT, yytext()); }
 					case -69:
 						break;
-					case 72:
+					case 70:
 						{ return tok(sym.IDENT, yytext()); }
 					case -70:
 						break;
-					case 73:
+					case 71:
 						{ return tok(sym.IDENT, yytext()); }
 					case -71:
 						break;
-					case 74:
+					case 72:
 						{ return tok(sym.IDENT, yytext()); }
 					case -72:
 						break;
-					case 75:
+					case 73:
 						{ return tok(sym.IDENT, yytext()); }
 					case -73:
 						break;
-					case 76:
+					case 74:
 						{ return tok(sym.IDENT, yytext()); }
 					case -74:
 						break;
-					case 77:
+					case 75:
 						{ return tok(sym.IDENT, yytext()); }
 					case -75:
 						break;
-					case 78:
+					case 76:
 						{ return tok(sym.IDENT, yytext()); }
 					case -76:
 						break;
-					case 79:
+					case 77:
 						{ return tok(sym.IDENT, yytext()); }
 					case -77:
 						break;
-					case 80:
+					case 78:
 						{ return tok(sym.IDENT, yytext()); }
 					case -78:
 						break;
-					case 81:
+					case 79:
 						{ return tok(sym.IDENT, yytext()); }
 					case -79:
 						break;
-					case 82:
+					case 80:
 						{ return tok(sym.IDENT, yytext()); }
 					case -80:
 						break;
-					case 83:
+					case 81:
 						{ return tok(sym.IDENT, yytext()); }
 					case -81:
 						break;
-					case 84:
+					case 82:
 						{ return tok(sym.IDENT, yytext()); }
 					case -82:
 						break;
-					case 85:
+					case 83:
 						{ return tok(sym.IDENT, yytext()); }
 					case -83:
 						break;
-					case 86:
+					case 84:
 						{ return tok(sym.IDENT, yytext()); }
 					case -84:
 						break;
-					case 87:
+					case 85:
 						{ return tok(sym.IDENT, yytext()); }
 					case -85:
 						break;
-					case 88:
+					case 86:
 						{ return tok(sym.IDENT, yytext()); }
 					case -86:
 						break;
-					case 89:
+					case 87:
 						{ return tok(sym.IDENT, yytext()); }
 					case -87:
 						break;
-					case 90:
+					case 88:
 						{ return tok(sym.IDENT, yytext()); }
 					case -88:
 						break;
-					case 91:
+					case 89:
 						{ return tok(sym.IDENT, yytext()); }
 					case -89:
 						break;
-					case 92:
+					case 90:
 						{ return tok(sym.IDENT, yytext()); }
 					case -90:
 						break;
-					case 93:
+					case 91:
 						{ return tok(sym.IDENT, yytext()); }
 					case -91:
 						break;
-					case 94:
+					case 92:
 						{ return tok(sym.IDENT, yytext()); }
 					case -92:
 						break;
-					case 95:
+					case 93:
 						{ return tok(sym.IDENT, yytext()); }
 					case -93:
 						break;
-					case 96:
+					case 94:
 						{ return tok(sym.IDENT, yytext()); }
 					case -94:
 						break;
-					case 97:
+					case 95:
 						{ return tok(sym.IDENT, yytext()); }
 					case -95:
 						break;
-					case 98:
+					case 96:
 						{ return tok(sym.IDENT, yytext()); }
 					case -96:
 						break;
-					case 99:
+					case 97:
 						{ return tok(sym.IDENT, yytext()); }
 					case -97:
 						break;
-					case 100:
+					case 98:
 						{ return tok(sym.IDENT, yytext()); }
 					case -98:
 						break;
-					case 101:
+					case 99:
 						{ return tok(sym.IDENT, yytext()); }
 					case -99:
 						break;
-					case 102:
+					case 100:
 						{ return tok(sym.IDENT, yytext()); }
 					case -100:
 						break;
-					case 103:
+					case 101:
 						{ return tok(sym.IDENT, yytext()); }
 					case -101:
 						break;
-					case 104:
+					case 102:
 						{ return tok(sym.IDENT, yytext()); }
 					case -102:
+						break;
+					case 103:
+						{ return tok(sym.IDENT, yytext()); }
+					case -103:
+						break;
+					case 104:
+						{ return tok(sym.IDENT, yytext()); }
+					case -104:
 						break;
 					default:
 						yy_error(YY_E_INTERNAL,false);
