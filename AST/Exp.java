@@ -1,5 +1,7 @@
 package AST;
 
+import Errors.*;
+
 public interface Exp {
-	//public String genCode();
+	public int computeType() throws CompilerExc;
 }

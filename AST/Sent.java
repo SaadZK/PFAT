@@ -1,5 +1,7 @@
 package AST;
 
+import Errors.*;
+
 public interface Sent {
-	// public String genCode();
+	public void computeAH1() throws CompilerExc;
 }

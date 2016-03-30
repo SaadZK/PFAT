@@ -8,28 +8,34 @@ CUP = CUP
 LEXER = Lexer
 PARSER = Parser
 ERRORS = Errors
+COMPILER = Compiler
 AST = AST
 COMPILED = Compiled
 CLASSPATH = -cp $(CUP)/:$(COMPILED)/
 EJEMPLOS = Ejemplos
 
 # PHONY, evitando conflicto de nombres
-.PHONY: all errors ast clean parser lexer
+.PHONY: all errors compiler ast clean parser lexer
 
 # Orden de compilación según se pide en la práctica:
 # 	1 : Clases del paquete Errors.
-# 	2 : Clases del paquete AST que usted debe desarrollar.
-# 	3 : Clases parser y sym generadas por CUP.
-# 	4 : Clase Yylex generada por JLex.
-# 	5 : Clase Main que se proporciona.
+# 	2 : Clases del paquete Compiler.
+# 	3 : Clases del paquete AST.
+# 	4 : Clases parser y sym generadas por CUP.
+# 	5 : Clase Yylex generada por JLex.
+# 	6 : Clase Main que se proporciona.
 
 # Proceso completo!
-all: errors ast parser lexer main
+all: errors compiler ast parser lexer main
 
 # Compilamos Errors.
 errors:
 	mkdir -p $(COMPILED)/$(ERRORS)
 	$(JC) -d $(COMPILED) $(ERRORS)/*.java
+
+compiler:
+	mkdir -p $(COMPILED)/$(COMPILER)
+	$(JC) -d $(COMPILED) $(COMPILER)/*.java
 
 ast:
 	$(JC) -d $(COMPILED) $(AST)/*.java

@@ -1,5 +1,8 @@
 package AST;
 
+import Errors.*;
+import Compiler.*;
+
 public class S4 implements S {
 	public final String ident;
 	public final LVar lvar;
@@ -11,5 +14,12 @@ public class S4 implements S {
 		this.lvar = lvar;
 		this.vdef = vdef;
 		this.body = body;
+	}
+
+	public void computeAH1() throws CompilerExc {
+		SymbolTable.newVariableEntry(ident, SymbolTable.OTHER);
+		lvar.computeAH1(SymbolTable.STRING);
+		vdef.computeAH1();
+		body.computeAH1();
 	}
 }

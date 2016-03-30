@@ -1,5 +1,8 @@
 package AST;
 
+import Errors.*;
+import Compiler.*;
+
 public class S1 implements S {
 	public final String ident;
 	public final LVar lvar;
@@ -9,5 +12,11 @@ public class S1 implements S {
 		this.ident = ident;
 		this.lvar = lvar;
 		this.body = body;
+	}
+
+	public void computeAH1() throws CompilerExc {
+		SymbolTable.newVariableEntry(ident, SymbolTable.OTHER);
+		lvar.computeAH1(SymbolTable.STRING);
+		body.computeAH1();
 	}
 }

@@ -1,5 +1,8 @@
 package AST;
 
+import Errors.*;
+import Compiler.*;
+
 public class Cond2 implements Cond {
 	public final Exp exp;
 	public final Sent sent1;
@@ -9,5 +12,13 @@ public class Cond2 implements Cond {
 		this.exp = exp;
 		this.sent1 = sent1;
 		this.sent2 = sent2;
+	}
+
+	public void computeAH1() throws CompilerExc {
+		if (!(exp.computeType() == SymbolTable.BOOL)) {
+			throw new IncorrectConditionExc("Incorrect condition expresion.");
+		} 
+		sent1.computeAH1();
+		sent2.computeAH1();
 	}
 }
