@@ -15,7 +15,6 @@ public class S3 implements S {
 	}
 
 	public void computeAH1() throws CompilerExc {
-		SymbolTable.newVariableEntry(ident, SymbolTable.OTHER);
 		vdef.computeAH1();
 		body.computeAH1();
 	}

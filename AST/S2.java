@@ -13,7 +13,6 @@ public class S2 implements S {
 	}
 
 	public void computeAH1() throws CompilerExc {
-		SymbolTable.newVariableEntry(ident, SymbolTable.OTHER);
 		body.computeAH1();
 	}
 }

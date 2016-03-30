@@ -17,7 +17,6 @@ public class S4 implements S {
 	}
 
 	public void computeAH1() throws CompilerExc {
-		SymbolTable.newVariableEntry(ident, SymbolTable.OTHER);
 		lvar.computeAH1(SymbolTable.STRING);
 		vdef.computeAH1();
 		body.computeAH1();

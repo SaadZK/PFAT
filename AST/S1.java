@@ -15,7 +15,6 @@ public class S1 implements S {
 	}
 
 	public void computeAH1() throws CompilerExc {
-		SymbolTable.newVariableEntry(ident, SymbolTable.OTHER);
 		lvar.computeAH1(SymbolTable.STRING);
 		body.computeAH1();
 	}

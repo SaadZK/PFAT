@@ -14,7 +14,7 @@ public class Asign {
 
 	public void computeAH1() throws CompilerExc {
 		if (!(SymbolTable.getVariableType(ident) == exp.computeType())) {
-			throw new IncorrectTypesExc("Incorrect type in multiplication operation.");
+			throw new IncorrectTypesExc("Incorrect type in asign.");
 		}
 	}
 }

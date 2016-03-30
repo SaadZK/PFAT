@@ -13,5 +13,6 @@ public class VDef2 implements VDef {
 
 	public void computeAH1() throws CompilerExc {
 		decl.computeAH1();
+		vdef.computeAH1();
 	}
 }
