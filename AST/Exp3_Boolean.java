@@ -4,7 +4,7 @@ import Errors.*;
 import Compiler.*;
 
 public class Exp3_Boolean implements Exp {
-	public final int valor; /* 0: true, 1: false, 2: unk */
+	public final int valor;
 
 	public Exp3_Boolean(int valor) {
 		this.valor = valor;

@@ -34,6 +34,7 @@ public class Main
           root.computeAH1();
           System.out.println("Analisis semantico correcto");
           /* Fin codigo analisis semantico */
+          
     	} catch(IOException e) {
     	    System.out.println("Error abriendo fichero: " + args[0]);
     	    error= true;
