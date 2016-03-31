@@ -1,7 +1,7 @@
 package AST;
 
 import Errors.*;
-import Compiler.*;
+import Compiler.SymbolTable;
 
 public class LVar2 implements LVar {
 	public final String ident;

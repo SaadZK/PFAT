@@ -1,7 +1,7 @@
 package AST;
 
 import Errors.*;
-import Compiler.*;
+import Compiler.SymbolTable;
 
 public class Exp4_Ident implements Exp {
 	public final String ident;

@@ -1,7 +1,7 @@
 package AST;
 
 import Errors.*;
-import Compiler.*;
+import Compiler.SymbolTable;
 
 public class Exp12_Int2Str implements Exp {
 	public final Exp exp;

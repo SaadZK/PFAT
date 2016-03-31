@@ -1,7 +1,7 @@
 package AST;
 
 import Errors.*;
-import Compiler.*;
+import Compiler.SymbolTable;
 
 public class Exp18_Mayor implements Exp {
 	public final Exp exp1;

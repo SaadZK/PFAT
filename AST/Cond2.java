@@ -1,7 +1,7 @@
 package AST;
 
 import Errors.*;
-import Compiler.*;
+import Compiler.SymbolTable;
 
 public class Cond2 implements Cond {
 	public final Exp exp;

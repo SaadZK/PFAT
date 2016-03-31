@@ -1,7 +1,6 @@
 package AST;
 
 import Errors.*;
-import Compiler.*;
 
 public class S3 implements S {
 	public final String ident;
