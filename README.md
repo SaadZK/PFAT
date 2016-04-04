@@ -233,7 +233,7 @@ java -cp CUP/:Compiled/ Main Ejemplos/Ejem1/ejem1.prg
 │   ├── Practica0.pdf
 │   ├── Practica1.pdf
 │   ├── Practica2.pdf
-│   └── Practica4.pdf
+│   └── Practica3.pdf
 ├── Errors
 │   ├── CompilerExc.java
 │   └── LexerException.java
