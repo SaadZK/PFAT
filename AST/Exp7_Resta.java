@@ -2,6 +2,7 @@ package AST;
 
 import Errors.*;
 import Compiler.SymbolTable;
+import java.io.IOException;
 
 public class Exp7_Resta implements Exp {
 	public final Exp exp1;
@@ -19,4 +20,9 @@ public class Exp7_Resta implements Exp {
 		
 		throw new IncorrectTypesExc("Incorrect type in minus operation.");
 	}
+    
+    public String generateCode() {
+        return "(" + exp1.generateCode() + ") - (" + exp2.generateCode() + ")";
+    }
+
 }

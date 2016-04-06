@@ -2,6 +2,7 @@ package AST;
 
 import Errors.*;
 import Compiler.SymbolTable;
+import java.io.IOException;
 
 public class Exp11_Str2Int implements Exp {
 	public final Exp exp;
@@ -17,4 +18,9 @@ public class Exp11_Str2Int implements Exp {
 		
 		throw new IncorrectTypesExc("Incorrect type in Str2Int operation.");
 	}
+    
+    public String generateCode() {
+        return "Integer.parseInt(" + exp.generateCode() + ")";
+    }
+
 }

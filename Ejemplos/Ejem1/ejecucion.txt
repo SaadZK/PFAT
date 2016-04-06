@@ -1,0 +1,12 @@
+Ejem1>java Ej1 5
+Resultado= 15
+
+Ejem1>java Ej1 1
+Resultado= 1
+
+Ejem1>java Ej1 2
+Resultado= 3
+
+Ejem1>java Ej1 10
+Resultado= 55
+

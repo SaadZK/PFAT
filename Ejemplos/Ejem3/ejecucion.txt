@@ -1,0 +1,38 @@
+Ejem3> java Ej3 -2
+Los factores primos de -2 son: 
+
+Ejem3> java Ej3 0
+Los factores primos de 0 son: 
+
+Ejem3> java Ej3 1
+Los factores primos de 1 son: 
+
+Ejem3> java Ej3 2
+2 es factor primo de 2
+Los factores primos de 2 son: 2
+
+Ejem3> java Ej3 2016
+2 es factor primo de 2016
+2 es factor primo de 2016
+2 es factor primo de 2016
+2 es factor primo de 2016
+2 es factor primo de 2016
+3 es factor primo de 2016
+3 es factor primo de 2016
+7 es factor primo de 2016
+Los factores primos de 2016 son: 2; 2; 2; 2; 2; 3; 3; 7
+
+Ejem3> java Ej3 893465232
+2 es factor primo de 893465232
+2 es factor primo de 893465232
+2 es factor primo de 893465232
+2 es factor primo de 893465232
+3 es factor primo de 893465232
+11 es factor primo de 893465232
+181 es factor primo de 893465232
+Los factores primos de 893465232 son: 2; 2; 2; 2; 3; 11; 181; 9349
+
+Ejem3> java Ej3 893465231
+61 es factor primo de 893465231
+601 es factor primo de 893465231
+Los factores primos de 893465231 son: 61; 601; 24371

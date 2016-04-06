@@ -2,6 +2,8 @@ package AST;
 
 import Errors.*;
 import Compiler.SymbolTable;
+import java.io.IOException;
+import java.io.BufferedWriter;
 
 public class S4 implements S {
 	public final String ident;
@@ -20,5 +22,24 @@ public class S4 implements S {
 		lvar.computeAH1(SymbolTable.STRING);
 		vdef.computeAH1();
 		body.computeAH1();
+	}
+
+	public void generateCode(BufferedWriter w) throws IOException {
+		w.write("	public static void " + ident + "(" + lvar.generateArguments() + ") {");
+		w.newLine(); w.newLine();
+		vdef.generateCode(w, "		");
+		w.newLine();
+		body.generateCode(w, "		");
+		w.newLine();
+		w.write("	}");
+		// MAIN
+		w.newLine();
+		w.newLine();
+        w.write("	public static void main(String [] args) {");
+        w.newLine();
+        w.write("		" + ident + "(" + lvar.generateMain(0) + ");");
+        w.newLine();
+        w.write("	}");
+        // END MAIN
 	}
 }

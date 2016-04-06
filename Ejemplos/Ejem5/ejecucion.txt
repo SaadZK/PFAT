@@ -1,0 +1,12 @@
+Ejem5> java Ej5 Hola
+Resultado 1 correcto
+Resultado 2 correcto
+Resultado 3 correcto
+Resultado 4 correcto
+Resultado 5 correcto
+Resultado 6 correcto
+Resultado 7 correcto
+Resultado 8 correcto
+Resultado 9 correcto
+Resultado 10 correcto
+Resultado 11 correcto

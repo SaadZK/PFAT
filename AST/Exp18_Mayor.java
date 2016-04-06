@@ -2,6 +2,7 @@ package AST;
 
 import Errors.*;
 import Compiler.SymbolTable;
+import java.io.IOException;
 
 public class Exp18_Mayor implements Exp {
 	public final Exp exp1;
@@ -19,4 +20,8 @@ public class Exp18_Mayor implements Exp {
 		
 		throw new IncorrectTypesExc("Incorrect type in greater than operation.");
 	}
+
+	public String generateCode() {
+        return "new Logic(false, (" + exp1.generateCode() + ") > (" + exp2.generateCode() + "))";
+    }
 }

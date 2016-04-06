@@ -1,0 +1,43 @@
+PF2011 Ejemplo2(argumento)
+
+vars
+
+int x;
+bool y;
+
+{
+x:=Str2Int(argumento);
+
+while (x > 80) {
+  y:=y+1;
+  while (x > 100) {
+    y:=y+x;
+    x:=x/2;
+    if ((x/3)*3=x) then
+    {
+      print("Salida 1");
+      break 1;
+    }
+    endif
+  }
+  x:=x + 5;
+}
+
+while (x > 10) {
+  y:=y+1;
+  while (x > 2) {
+    y:=y+x;
+    x:=x/2;
+    if ((x/3)*3=x) then
+    {
+      print("Salida 2");
+      break 1;
+     }  
+     endif
+   }
+   x:=x + 1;
+}
+
+print("Resultado= " + Int2Str(y));
+
+}

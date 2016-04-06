@@ -2,6 +2,7 @@ package AST;
 
 import Errors.*;
 import Compiler.SymbolTable;
+import java.io.IOException;
 
 public class Exp15_Not implements Exp {
 	public final Exp exp;
@@ -17,4 +18,8 @@ public class Exp15_Not implements Exp {
 		
 		throw new IncorrectTypesExc("Incorrect type in not operation.");
 	}
+
+	public String generateCode() {
+        return "(" + exp.generateCode() + ").not()";
+    }
 }

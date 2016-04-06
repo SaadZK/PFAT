@@ -19,4 +19,16 @@ public class LVar1 implements LVar {
 	public int getAH1() {
 		return ah1;
 	}
+
+	public String generateArguments() {
+		return SymbolTable.typeToString(ah1) + " " + ident;
+	}
+
+	public String generateCode() {
+		return ident + ";";
+	}
+
+	public String generateMain(int index) {
+		return "args[" + index + "]";
+	}
 }

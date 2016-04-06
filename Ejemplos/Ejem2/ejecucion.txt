@@ -1,0 +1,11 @@
+Ejem2> java Ej2 10
+Resultado= 55
+Argumento mayor que 0
+
+Ejem2> java  Ej2 0
+Resultado= 0
+Argumento igual a 0
+
+Ejem2> java Ej2 -10
+Resultado= 0
+Argumento menor que 0

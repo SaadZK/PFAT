@@ -2,6 +2,7 @@ package AST;
 
 import Errors.*;
 import Compiler.SymbolTable;
+import java.io.IOException;
 
 public class Exp14_And implements Exp {
 	public final Exp exp1;
@@ -19,4 +20,8 @@ public class Exp14_And implements Exp {
 		
 		throw new IncorrectTypesExc("Incorrect type in and operation.");
 	}
+
+	public String generateCode() {
+        return "(" + exp1.generateCode() + ").and(" + exp2.generateCode() + ")";
+    }
 }

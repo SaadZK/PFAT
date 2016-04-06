@@ -31,4 +31,9 @@ public class SymbolTable {
 
 		return type.intValue();
 	}
+
+	/* Type to string - generateCode */
+	public static String typeToString(int type) {
+		return (type == INT) ? "int" : (type == BOOL) ? "Logic" : "String";
+	}
 }

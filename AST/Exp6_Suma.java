@@ -2,6 +2,7 @@ package AST;
 
 import Errors.*;
 import Compiler.SymbolTable;
+import java.io.IOException;
 
 public class Exp6_Suma implements Exp {
 	public final Exp exp1;
@@ -20,5 +21,9 @@ public class Exp6_Suma implements Exp {
 		}
 		
 		throw new IncorrectTypesExc("Incorrect type in plus operation.");
+	}
+
+	public String generateCode() {
+		return "(" + exp1.generateCode() + ") + (" + exp2.generateCode() + ")";
 	}
 }

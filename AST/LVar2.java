@@ -22,4 +22,16 @@ public class LVar2 implements LVar {
 	public int getAH1() {
 		return ah1;
 	}
+
+	public String generateArguments() {
+		return SymbolTable.typeToString(ah1) + " " +ident + ", " + lvar.generateArguments();
+	}
+
+	public String generateCode() {
+		return ident + ", " +  lvar.generateCode();
+	}
+
+	public String generateMain(int index) {
+		return "args[" + index + "], " + lvar.generateMain(++index);
+	}
 }

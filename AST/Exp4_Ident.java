@@ -13,4 +13,8 @@ public class Exp4_Ident implements Exp {
 	public int computeType() throws CompilerExc {
 		return SymbolTable.getVariableType(ident);
 	}
+
+	public String generateCode() {
+		return ident;
+	}
 }

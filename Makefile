@@ -1,4 +1,4 @@
-# java -cp CUP/:Compiled/ Main Ejemplos/Ejem1/ejem1.prg
+# Makefile para agilizar el proceso de compilación
 
 # Definimos variables de compilación
 J = java
@@ -10,23 +10,25 @@ PARSER = Parser
 ERRORS = Errors
 COMPILER = Compiler
 AST = AST
+GENERATED = GeneratedCodeLib
 COMPILED = Compiled
 CLASSPATH = -cp $(CUP)/:$(COMPILED)/
 EJEMPLOS = Ejemplos
 
 # PHONY, evitando conflicto de nombres
-.PHONY: all errors compiler ast clean parser lexer
+.PHONY: all errors compiler ast clean parser lexer generatedcode
 
 # Orden de compilación según se pide en la práctica:
 # 	1 : Clases del paquete Errors.
-# 	2 : Clases del paquete Compiler.
-# 	3 : Clases del paquete AST.
-# 	4 : Clases parser y sym generadas por CUP.
-# 	5 : Clase Yylex generada por JLex.
-# 	6 : Clase Main que se proporciona.
+#	2 : Clases de GeneratedCodeLib
+# 	3 : Clases del paquete Compiler.
+# 	4 : Clases del paquete AST.
+# 	5 : Clases parser y sym generadas por CUP.
+# 	6 : Clase Yylex generada por JLex.
+# 	7 : Clase Main que se proporciona.
 
 # Proceso completo!
-all: errors compiler ast parser lexer main
+all: errors generatedcode compiler ast parser lexer main
 
 # Compilamos Errors.
 errors:
@@ -52,10 +54,15 @@ lexer:
 	$(J) $(JLEX).Main $(LEXER)/Yylex
 	$(JC) $(CLASSPATH) -d $(COMPILED) $(LEXER)/Yylex.java
 
+# Preparamos librerías de generación de código
+generatedcode:
+	mkdir -p $(COMPILED)/$(GENERATED)
+	$(JC) -d $(COMPILED) $(GENERATED)/*.java
+
 # Compilamos y ejecutamos el Main. GO! Modificar a mano el fichero.
 main:
 	$(JC) $(CLASSPATH) -d $(COMPILED) Main.java
-	#$(J) $(CLASSPATH) Main Ejemplos/Ejem1/ejem1.prg
+	#$(J) $(CLASSPATH) Main Ejemplos/Ejem1/ejem1.prg Programa
 
 # RM is a predefined macro in make (RM = rm -f)
 clean:
@@ -63,6 +70,7 @@ clean:
 	$(RM) $(PARSER)/parser.java $(PARSER)/sym.java
 	$(RM) $(LEXER)/Yylex.java
 	$(RM) -r $(COMPILED)
+	$(RM) Programa.java Programa.class
 
 # [EXTRA] Compilamos JLex solo la primera vez porque nos descargamos solo el código fuente.
 #init:

@@ -2,6 +2,7 @@ package AST;
 
 import Errors.*;
 import Compiler.SymbolTable;
+import java.io.IOException;
 
 public class Exp10_Opuesto implements Exp {
 	public final Exp exp;
@@ -17,4 +18,9 @@ public class Exp10_Opuesto implements Exp {
 		
 		throw new IncorrectTypesExc("Incorrect type in opposite operation.");
 	}
+    
+    public String generateCode() {
+        return "-(" + exp.generateCode() + ")";
+    }
+
 }

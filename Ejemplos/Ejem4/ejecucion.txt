@@ -1,0 +1,15 @@
+Ejem4>java Ej4 Luis
+Hola Luis
+Resultado 1= -5
+Resultado 2= 1
+Resultado 3= 10
+Resultado 4= 2
+Resultado 5= 82
+Resultado 6= 78
+Resultado 7= 1000
+Resultado 8 correcto
+Resultado 9 correcto
+Resultado 10 correcto
+Resultado 11 correcto
+Resultado 12 correcto
+

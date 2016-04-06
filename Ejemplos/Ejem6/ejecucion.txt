@@ -1,0 +1,11 @@
+Ejem6> java Ejem6 1 1 
+Resultado= 2
+
+Ejem6> java Ejem6 10 8
+Resultado= 18
+
+Ejem6> java Ejem6 -5 5
+Resultado= 0
+
+
+

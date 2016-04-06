@@ -1,6 +1,7 @@
 package AST;
 
 import Errors.*;
+import java.io.IOException;
 
 public class Exp5_Parentesis implements Exp {
 	public final Exp exp;
@@ -11,5 +12,9 @@ public class Exp5_Parentesis implements Exp {
 
 	public int computeType() throws CompilerExc {
 		return exp.computeType();
+	}
+
+	public String generateCode() {
+		return "(" + exp.generateCode() + ")";
 	}
 }
