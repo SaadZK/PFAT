@@ -63,6 +63,8 @@ generatedcode:
 main:
 	$(JC) $(CLASSPATH) -d $(COMPILED) Main.java
 	#$(J) $(CLASSPATH) Main Ejemplos/Ejem1/ejem1.prg Programa
+	#$(JC) Programa.java
+	#$(J) Programa
 
 # RM is a predefined macro in make (RM = rm -f)
 clean:

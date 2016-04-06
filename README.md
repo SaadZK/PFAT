@@ -89,6 +89,14 @@ P = {
 mkdir -p Compiled/Errors
 javac -d Compiled Errors/*.java
 
+# GeneratedCodeLib
+mkdir -p Compiled/GeneratedCodeLib
+javac -d Compiled GeneratedCodeLib/*.java
+
+# Compiler
+mkdir -p Compiled/Compiler
+javac -d Compiled Compiler/*.java
+
 # ASTs
 javac -d Compiled AST/*.java
 
@@ -104,7 +112,9 @@ javac -cp CUP/:Compiled/ -d Compiled Lexer/Yylex.java
 
 # Main
 javac -cp CUP/:Compiled/ -d Compiled Main.java
-java -cp CUP/:Compiled/ Main Ejemplos/Ejem1/ejem1.prg
+java -cp CUP/:Compiled/ Main Ejemplos/Ejem1/ejem1.prg Programa
+javac Programa.java
+java Programa
 ```
 
 ### Estructura de ficheros ###
@@ -162,31 +172,29 @@ java -cp CUP/:Compiled/ Main Ejemplos/Ejem1/ejem1.prg
 │   ├── VDef1.java
 │   ├── VDef2.java
 │   └── VDef.java
-├── Compiled
-│   ├── AST
-		...
-│   ├── Errors
-│   │   ...
-│   ├── Lexer
-│   │   └── Yylex.class
-│   ├── Main.class
-│   └── Parser
-│       ├── CUP$parser$actions.class
-│       ├── parser.class
-│       └── sym.class
+├── Compiler
+│   └── SymbolTable.java
 ├── CUP
-│	...
+│   ...
 ├── Ejemplos
 │   ├── Ejem1
+│   │   ├── ejecucion.txt
 │   │   └── ejem1.prg
 │   ├── Ejem2
+│   │   ├── ejecucion.txt
 │   │   └── ejem2.prg
 │   ├── Ejem3
+│   │   ├── ejecucion.txt
 │   │   └── ejem3.prg
 │   ├── Ejem4
+│   │   ├── ejecucion.txt
 │   │   └── ejem4.prg
 │   ├── Ejem5
+│   │   ├── ejecucion.txt
 │   │   └── ejem5.prg
+│   ├── Ejem6
+│   │   ├── ejecucion.txt
+│   │   └── ejem6.prg
 │   ├── ErrLex1
 │   │   └── errLex1.prg
 │   ├── ErrLex2
@@ -206,6 +214,7 @@ java -cp CUP/:Compiled/ Main Ejemplos/Ejem1/ejem1.prg
 │   ├── ErrSem2
 │   │   └── errSem2.prg
 │   ├── ErrSem3
+│   │   ├── errSem3.pf2011
 │   │   └── errSem3.prg
 │   ├── ErrSem4
 │   │   └── errSem4.prg
@@ -236,19 +245,23 @@ java -cp CUP/:Compiled/ Main Ejemplos/Ejem1/ejem1.prg
 │   └── Practica3.pdf
 ├── Errors
 │   ├── CompilerExc.java
-│   └── LexerException.java
+│   ├── DoubleVarDefExc.java
+│   ├── IncorrectConditionExc.java
+│   ├── IncorrectTypesExc.java
+│   ├── LexerException.java
+│   └── VarNotFoundExc.java
+├── GeneratedCodeLib
+│   └── Logic.java
 ├── JLex
-│	...
+│   ...
 ├── Lexer
-│   ├── Yylex
-│   └── Yylex.java
+│   └── Yylex
 ├── Main.java
 ├── Makefile
 ├── Parser
-│   ├── parser
-│   ├── parser.java
-│   └── sym.java
-└── README.md
+│   └── parser
+├── README.md
+└── SJS.xml
 
-43 directories, 268 files
+41 directories, 223 files
 ```
