@@ -4,7 +4,7 @@ import java.io.*;
 import AST.S;
 
 public class Main {
-    
+
   private static void codeGenerator(String className, S s){
     try {
         BufferedWriter w = new BufferedWriter(new FileWriter(className + ".java"));
@@ -35,7 +35,7 @@ public class Main {
     boolean error=false;
 
     //El primer parametro es el nombre del fichero con el programa
-    if (args.length < 1) {
+    if (args.length != 2) {
       System.out.println(
         "Uso: java Main <nombre_fichero> <fichero_generado>");
       error=true;
@@ -43,7 +43,7 @@ public class Main {
 
     //Analisis lexico y sintactico
 
-    if (!error) {  
+    if (!error) {
     	try {
     	    in = new java.io.BufferedReader(new java.io.FileReader(args[0]));
     	    sc = new Yylex(in);
@@ -56,7 +56,7 @@ public class Main {
           root.computeAH1();
           System.out.println("Análisis semántico correcto");
           /* Fin codigo analisis semantico */
-          
+
           /* Codigo para generar codigo Java */
           codeGenerator(args[1], root);
           /* Fin codigo para generar codigo Java */

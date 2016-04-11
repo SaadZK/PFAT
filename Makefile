@@ -73,6 +73,8 @@ clean:
 	$(RM) $(LEXER)/Yylex.java
 	$(RM) -r $(COMPILED)
 	$(RM) Programa.java Programa.class
+	# Cuando compilamos los programas se recompila GeneratedCodeLib (no tiene Classpath)
+	$(RM) $(GENERATED)/*.class
 
 # [EXTRA] Compilamos JLex solo la primera vez porque nos descargamos solo el código fuente.
 #init:
