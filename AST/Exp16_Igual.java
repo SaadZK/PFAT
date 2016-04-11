@@ -3,6 +3,7 @@ package AST;
 import Errors.*;
 import Compiler.SymbolTable;
 import java.io.IOException;
+import GeneratedCodeLib.Logic;
 
 public class Exp16_Igual implements Exp {
 	public final Exp exp1;
@@ -26,8 +27,10 @@ public class Exp16_Igual implements Exp {
 	public String generateCode() {
         if (type == SymbolTable.INT) {
         	return "new Logic(false, (" + exp1.generateCode() + ") == (" + exp2.generateCode() + "))";
-        } else {
+        } else if (type == SymbolTable.STRING) {
         	return "new Logic(false, (" + exp1.generateCode() + ").equals(" + exp2.generateCode() + "))";
+        } else {
+        	return "new Logic(false, (" + exp1.generateCode() + ").compareLogic(" + exp2.generateCode() + "))";
         }
     }
 }

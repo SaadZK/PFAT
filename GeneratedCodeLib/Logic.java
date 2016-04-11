@@ -65,4 +65,11 @@ public class Logic {
 		return "new Logic(" + value + ")";
 	}
 
+	public boolean compareLogic(Logic logic) {
+		if ((this.unkVal == logic.unkVal) && (this.tfVal == logic.tfVal)){
+			return true;
+		}
+		return false;
+	}
+
 }
