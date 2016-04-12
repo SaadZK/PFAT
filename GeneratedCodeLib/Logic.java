@@ -72,4 +72,11 @@ public class Logic {
 		return false;
 	}
 
+	@Override
+	public String toString() {
+		if (unkVal) {
+			return "unk";
+		}
+		return Boolean.toString(this.tfVal);
+	}
 }

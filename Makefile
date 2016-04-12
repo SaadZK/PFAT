@@ -14,9 +14,11 @@ GENERATED = GeneratedCodeLib
 COMPILED = Compiled
 CLASSPATH = -cp $(CUP)/:$(COMPILED)/
 EJEMPLOS = Ejemplos
+PRUEBAS = Pruebas
+CWD = ~/Documentos/PFAT
 
 # PHONY, evitando conflicto de nombres
-.PHONY: all errors compiler ast clean parser lexer generatedcode
+.PHONY: all errors compiler ast clean parser lexer generatedcode main
 
 # Orden de compilación según se pide en la práctica:
 # 	1 : Clases del paquete Errors.
@@ -66,6 +68,17 @@ main:
 	#$(JC) Programa.java
 	#$(J) Programa
 
+examples:
+	mkdir -p $(PRUEBAS)
+	cp -r $(GENERATED) $(PRUEBAS)
+	for number in 1 2 3 4 5 6 ; do \
+        echo $(EJEMPLOS)/Ejem$$number/Ejem$$number.prg ; \
+        $(J) $(CLASSPATH) Main $(EJEMPLOS)/Ejem$$number/ejem$$number.prg Ejem$$number; \
+        mv -f $(CWD)/Ejem$$number.java $(CWD)/$(PRUEBAS); \
+        $(JC) $(PRUEBAS)/Ejem$$number.java; \
+    done
+    #$(J) Pruebas/Ejem1 1
+
 # RM is a predefined macro in make (RM = rm -f)
 clean:
 	#$(RM) *.class
@@ -73,9 +86,11 @@ clean:
 	$(RM) $(LEXER)/Yylex.java
 	$(RM) -r $(COMPILED)
 	$(RM) Programa.java Programa.class
-	# Cuando compilamos los programas se recompila GeneratedCodeLib (no tiene Classpath)
+	# Cuando compilamos los ejemplos se recompila GeneratedCodeLib (no tiene Classpath)
 	$(RM) $(GENERATED)/*.class
+	$(RM) -r $(PRUEBAS)
 
 # [EXTRA] Compilamos JLex solo la primera vez porque nos descargamos solo el código fuente.
 #init:
+#	mkdir -p $(JLEX)
 #	$(JC) $(JLEX)/Main.java

@@ -25,10 +25,10 @@ public class LVar1 implements LVar {
 	}
 
 	public String generateCode() {
-		return ident + ";";
+		return ident + ((this.ah1 == SymbolTable.INT) ? " = 0" : (this.ah1 == SymbolTable.STRING) ? " = \"\"" : " = new Logic(false, false)") + ";";
 	}
 
 	public String generateMain(int index) {
-		return "args[" + index + "]";
+		return "argumentos[" + index + "]";
 	}
 }

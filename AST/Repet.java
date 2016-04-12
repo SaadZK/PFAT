@@ -22,10 +22,10 @@ public class Repet {
 	}
 
 	public void generateCode(BufferedWriter w, String tabs) throws IOException {
+		w.newLine();
 		w.write(tabs + "while ((" + exp.generateCode() + ").isTrue()) {");
 		w.newLine();
 		sent.generateCode(w, tabs + "	");
-		w.newLine();
 		w.write(tabs + "}");
 		w.newLine();
 	}

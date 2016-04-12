@@ -1,4 +1,7 @@
 # Prácticas de PFAT #
+
+## Definición del lenguaje ##
+
 ### Gramática
 ```
 #!text
@@ -82,6 +85,10 @@ P = {
 | false 	| Integer(**1**) |
 | unk 		| Integer(**2**) |
 
+
+## Desarrollo del compilador ##
+## Comandos ##
+
 ### Comandos para compilar ###
 ```
 #!bash
@@ -112,9 +119,38 @@ javac -cp CUP/:Compiled/ -d Compiled Lexer/Yylex.java
 
 # Main
 javac -cp CUP/:Compiled/ -d Compiled Main.java
+
+# Examples (6 times for each file)
 java -cp CUP/:Compiled/ Main Ejemplos/Ejem1/ejem1.prg Programa
 javac Programa.java
-java Programa
+java Programa <args>
+
+```
+
+### Comandos Makefile ###
+```
+#!bash
+# Compilar JLex la primera vez
+make init
+
+# Compilar el principal
+make
+
+# Compilar ejemplos
+make examples
+
+# Probar ejemplos
+cd Pruebas
+java Ejem1 5
+java Ejem2 10
+java Ejem3 -2
+java Ejem4 Luis
+java Ejem5 Hola
+java Ejem6 1 1
+
+# Eliminar ficheros
+make clean
+
 ```
 
 ### Estructura de ficheros ###

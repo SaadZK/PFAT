@@ -29,6 +29,7 @@ public class Cond3 implements Cond {
 
 	public void generateCode(BufferedWriter w, String tabs) throws IOException {
 		String condition = exp.generateCode();
+		w.newLine();
 		w.write(tabs + "if ((" + condition + ").isTrue()) {");
 		w.newLine();
 		sent1.generateCode(w, tabs + "	");

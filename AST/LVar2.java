@@ -24,14 +24,14 @@ public class LVar2 implements LVar {
 	}
 
 	public String generateArguments() {
-		return SymbolTable.typeToString(ah1) + " " +ident + ", " + lvar.generateArguments();
+		return SymbolTable.typeToString(ah1) + " " + ident + ", " + lvar.generateArguments();
 	}
 
 	public String generateCode() {
-		return ident + ", " +  lvar.generateCode();
+		return ident + ((this.ah1 == SymbolTable.INT) ? " = 0" : (this.ah1 == SymbolTable.STRING) ? " = \"\"" : " = new Logic(false, false)") + ", " +  lvar.generateCode();
 	}
 
 	public String generateMain(int index) {
-		return "args[" + index + "], " + lvar.generateMain(++index);
+		return "argumentos[" + index + "], " + lvar.generateMain(++index);
 	}
 }

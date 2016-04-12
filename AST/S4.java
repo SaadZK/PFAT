@@ -25,6 +25,7 @@ public class S4 implements S {
 	}
 
 	public void generateCode(BufferedWriter w) throws IOException {
+		String arguments = lvar.generateArguments();
 		w.write("	public static void " + ident + "(" + lvar.generateArguments() + ") {");
 		w.newLine(); w.newLine();
 		vdef.generateCode(w, "		");
@@ -37,6 +38,15 @@ public class S4 implements S {
 		w.newLine();
         w.write("	public static void main(String [] args) {");
         w.newLine();
+		w.newLine();
+        w.write("		String argumentos [] = new String [" + arguments.split(", ").length + "];");
+		w.newLine();
+		w.newLine();
+		w.write("		for (int i = 0; i < argumentos.length; i++)");
+		w.newLine();
+		w.write("			argumentos[i] = (i >= args.length) ? \"\" : args[i];");
+		w.newLine();
+		w.newLine();
         w.write("		" + ident + "(" + lvar.generateMain(0) + ");");
         w.newLine();
         w.write("	}");

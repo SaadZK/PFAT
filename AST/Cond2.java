@@ -25,6 +25,7 @@ public class Cond2 implements Cond {
 	}
 
 	public void generateCode(BufferedWriter w, String tabs) throws IOException {
+		w.newLine();
 		w.write(tabs + "if ((" + exp.generateCode() + ").isTrue()) {");
 		w.newLine();
 		sent1.generateCode(w, tabs + "	");
