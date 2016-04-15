@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE conjunto SYSTEM "/var/home/lab/alum1/03/05/296/Documentos/PFAT/XML/Peliculas.dtd">
+<conjunto>
+	<pelicula anio="2016" duracion="120m">
+		<titulo>Titulo</titulo>
+		<director>Yo</director>
+		<actor nombre="Yo"></actor>
+			<personaje>Peter</personaje>
+		<actor nombre="Tú" />
+		<genero>Comedia</genero>
+		<nacionalidad>Española</nacionalidad>
+	</pelicula>
+	<pelicula anio="2014" duracion="152m">
+		<titulo>A</titulo>
+		<director>E</director>
+		<actor nombre="Yo"></actor>
+		<genero>O</genero>
+		<nacionalidad>U</nacionalidad>
+	</pelicula>
+</conjunto>

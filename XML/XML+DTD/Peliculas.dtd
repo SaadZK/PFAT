@@ -1,0 +1,17 @@
+<!-- <!ELEMENT nombreElemento (contenido)> -->
+<!-- <!ATTLIST nombreElemento nombreAtributo tipoAtributo valorInicialAtributo > -->
+
+<!ELEMENT ejemplo (pelicula+)>
+<!ELEMENT pelicula (titulo, director, actor+, genero+, nacionalidad+, ANY*)>
+
+<!ATTLIST pelicula 
+anio CDATA #REQUIRED
+duracion CDATA #REQUIRED>
+
+<!ELEMENT titulo (#PCDATA)>
+<!ELEMENT director (#PCDATA)>
+<!ELEMENT actor (personaje*)>
+<!ATTLIST actor nombre CDATA #REQUIRED>
+<!ELEMENT personaje (#PCDATA)>
+<!ELEMENT genero (#PCDATA)>
+<!ELEMENT nacionalidad (#PCDATA)>
