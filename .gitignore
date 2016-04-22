@@ -1,9 +1,12 @@
 # Ficheros .java generados por el Parser
-Parser/parser.java
-Parser/sym.java
+Compilador/Parser/parser.java
+Compilador/Parser/sym.java
 
 # Ficheros .java generados por el Lexer
-Lexer/Yylex.java
+Compilador/Lexer/Yylex.java
 
 # Ficheros compilados por nuestra práctica, las librerías se mantienen
-Compiled/*
+Compilador/Compiled/*
+
+# Ficheros compilados de la pŕactica XML
+XML/**/*.class
