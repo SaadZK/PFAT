@@ -15,7 +15,6 @@ COMPILED = Compiled
 CLASSPATH = -cp $(CUP)/:$(COMPILED)/
 EJEMPLOS = Ejemplos
 PRUEBAS = Pruebas
-CWD = ~/Documentos/PFAT
 
 # PHONY, evitando conflicto de nombres
 .PHONY: all errors compiler ast clean parser lexer generatedcode main
@@ -71,6 +70,7 @@ main:
 examples:
 	mkdir -p $(PRUEBAS)
 	cp -r $(GENERATED) $(PRUEBAS)
+	$(eval CWD := $(shell pwd))
 	for number in 1 2 3 4 5 6 ; do \
         echo $(EJEMPLOS)/Ejem$$number/Ejem$$number.prg ; \
         $(J) $(CLASSPATH) Main $(EJEMPLOS)/Ejem$$number/ejem$$number.prg Ejem$$number; \
