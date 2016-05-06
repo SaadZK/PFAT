@@ -5,14 +5,18 @@ all: films
 
 films:
 	javac $(SRC).java
-	
-list:
-	java $(SRC) -l $(ARGS+)
 
-List:
+list: films _list
+List: films _List
+add: films _add
+
+_list:
+	java $(SRC) -l $(ARGS)
+
+_List:
 	java $(SRC) -L $(ARGS)	
 
-add:
+_add:
 	java $(SRC) -a $(ARGS)
 
 .PHONY: clean
