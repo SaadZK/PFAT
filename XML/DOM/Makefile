@@ -1,5 +1,6 @@
 SRC = Films
-ARGS = ../XML+DTD/Peliculas.xml
+ARGS = Peliculas.xml
+NEW = Modificado.xml
 
 all: films
 
@@ -21,4 +22,5 @@ _add:
 
 .PHONY: clean
 clean:
-	rm -f Films.class
+	rm -f $(SRC).class
+	rm -f $(NEW)
