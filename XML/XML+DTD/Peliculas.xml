@@ -1,20 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE conjunto SYSTEM "/var/home/lab/alum1/03/05/296/Documentos/PFAT/XML/Peliculas.dtd">
+<!DOCTYPE conjunto SYSTEM "Peliculas.dtd">
 <conjunto>
-	<pelicula anio="2016" duracion="120m">
-		<titulo>Titulo</titulo>
-		<director>Yo</director>
-		<actor nombre="Yo"></actor>
-			<personaje>Peter</personaje>
-		<actor nombre="Tú" />
+	<pelicula anio="2015" duracion="96m">
+		<titulo>Irrational Man</titulo>
+		<director>Woody Allen</director>
+		<actor nombre="Joaquin Phoenix"></actor>
+			<personaje>Jake</personaje>
+		<actor nombre="Emma Stone" />
 		<genero>Comedia</genero>
-		<nacionalidad>Española</nacionalidad>
+		<nacionalidad>Estadounidense</nacionalidad>
 	</pelicula>
-	<pelicula anio="2014" duracion="152m">
-		<titulo>A</titulo>
-		<director>E</director>
-		<actor nombre="Yo"></actor>
-		<genero>O</genero>
-		<nacionalidad>U</nacionalidad>
+	<pelicula anio="2015" duracion="144m">
+		<titulo>The Martian</titulo>
+		<director>Ridley Scott</director>
+		<actor nombre="Matt Damon"></actor>
+		<genero>Aventura</genero>
+		<nacionalidad>Estadounidense</nacionalidad>
+	</pelicula>
+	<pelicula anio="2015" duracion="156m">
+		<titulo>The Revenant</titulo>
+		<director>Alejandro G. Iñárritu</director>
+		<actor nombre="Leonardo DiCaprio"></actor>
+		<genero>Aventura</genero>
+		<nacionalidad>Estadounidense</nacionalidad>
+	</pelicula>
+	<pelicula anio="2010" duracion="146m">
+		<titulo>Harry Potter and the Deathly Hallows: Part 1</titulo>
+		<director>David Yates</director>
+		<actor nombre="Daniel Radcliffe"></actor>
+		<actor nombre="Emma Watson"></actor>
+		<genero>Aventura</genero>
+		<nacionalidad>Estadounidense</nacionalidad>
 	</pelicula>
 </conjunto>
