@@ -87,7 +87,6 @@ P = {
 
 
 ## Desarrollo del compilador ##
-## Comandos ##
 
 ### Comandos para compilar ###
 ```
