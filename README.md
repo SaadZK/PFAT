@@ -148,12 +148,14 @@
 ├── SJS.xml
 └── XML
     ├── DOM
+    │   ├── Films.class
     │   ├── Films.java
     │   ├── Makefile
     │   ├── Peliculas.dtd -> ../XML+DTD/Peliculas.dtd
     │   ├── Peliculas.xml -> ../XML+DTD/Peliculas.xml
     │   └── Practica6.pdf
     ├── XML+DTD
+    │   ├── Makefile
     │   ├── Peliculas.dtd
     │   ├── Peliculas.xml
     │   ├── Practica4.pdf
@@ -169,5 +171,5 @@
         ├── XSLTProcess.class
         └── XSLTProcess.java
 
-46 directories, 242 files
+46 directories, 244 files
 ```
