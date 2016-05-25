@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!ENTITY % PennyLane
+"atr1 CDATA #IMPLIED
+atr2 ID #IMPLIED" >
+
+<!ELEMENT R (D, E)>
+<!ELEMENT D EMPTY>
+<!ATTLIST D %PennyLane;>
+<!ELEMENT E ((A | B | C | E), (A | E))>
+
+<!ELEMENT A EMPTY>
+
+<!ELEMENT B EMPTY>
+
+<!ELEMENT C (#PCDATA)>
+
+
