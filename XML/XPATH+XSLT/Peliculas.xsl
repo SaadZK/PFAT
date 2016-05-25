@@ -11,7 +11,12 @@
     The <xsl:attribute> element is used to add attributes to elements.
   -->
   
-  <!-- Apartado 8
+  <!-- Apartado 8: Escribe una plantilla XSLT que genere un listado de los directores de las películas en el formato:
+        <directores>
+            <director>Steven Spielberg</director>
+            <director>Alfred Hitchcock</director>
+        </directores>
+
   <xsl:template match="/">
 
     <html>
@@ -36,7 +41,12 @@
   </xsl:template>
   -->
 
-  <!-- Apartado 9
+  <!-- Apartado 9: Escribe una plantilla XSLT que genere un listado de las películas en este formato alternativo:
+        <pelis>
+            <peli director="Steven Spielberg">La lista de Schindler</peli>
+            <peli director="Alfred Hitchcock">Con la muerte en los talones</peli>
+        </pelis>
+
   <xsl:template match="/">
 
     <html>
@@ -63,29 +73,29 @@
     </xsl:element>
   </xsl:template>
   -->
-  <!-- Apartado 10 (todo igual menos el select con condición)
+  <!-- Apartado 10: Modifica la hoja de estilo XSLT anterior para que se muestren sólo las películas producidas en 2010.
+        (todo igual menos el select con condición XPATH)
+
   <xsl:element name="pelis">
     <xsl:apply-templates select="descendant::*/pelicula[@anio=2010]"/>
   </xsl:element>
   -->
 
-  <!-- 
-  <?xml version="1.0" encoding="utf-8"?>
-<html>
-  <head>
-    <title>Películas</title>
-  </head>
-  <body>
-    <h1>Listado de Películas</h1>
-    <ul>
-      <li><i>La lista de Schindler</i>, de Steven Spielberg</li>
-      <li><i>Con la muerte en los talones</i>, de Alfred Hitchcock</li>
-    </ul>
-  </body>
-</html>
+  <!-- Apartado 11: Escribe una hoja de estilo XSLT que muestre en formato XHTML los datos de películas, con el formato:
+        <?xml version="1.0" encoding="utf-8"?>
+        <html>
+          <head>
+            <title>Películas</title>
+          </head>
+          <body>
+            <h1>Listado de Películas</h1>
+            <ul>
+              <li><i>La lista de Schindler</i>, de Steven Spielberg</li>
+              <li><i>Con la muerte en los talones</i>, de Alfred Hitchcock</li>
+            </ul>
+          </body>
+        </html>
   -->
-
-  <!-- Apartado 11 -->
   <xsl:template match="/">
 
     <html>

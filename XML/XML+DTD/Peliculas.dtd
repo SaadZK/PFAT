@@ -1,7 +1,17 @@
 <!-- <!ELEMENT nombreElemento (contenido)> -->
 <!-- <!ATTLIST nombreElemento nombreAtributo tipoAtributo valorInicialAtributo > -->
+<!-- Enunciado 
+	Como mínimo debe permitir representar los siguientes datos de una película, aunque se permite representar cualquier otro tipo de datos adicional que el alumno considere conveniente:
+		-Título.
+		-Director.
+		-Año.
+		-Duración.
+		-Actores protagonistas (añadiendo, opcionalmente, el nombre del personaje o personajes cuyo papel desempeñen).
+		-Uno o más géneros a los que pertenezca.
+		-Nacionalidad o nacionalidades.
+-->
 
-<!ELEMENT ejemplo (pelicula+)>
+<!ELEMENT peliculas (pelicula+)>
 <!ELEMENT pelicula (titulo, director, actor+, genero+, nacionalidad+, ANY*)>
 
 <!ATTLIST pelicula 

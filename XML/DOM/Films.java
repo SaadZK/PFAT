@@ -82,7 +82,13 @@ public class Films {
 		outStream.close();
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String [] args) throws Exception {
+    	/* 
+			La práctica consite en escribir un programa Java de línea de comandos que trabaje con ficheros XML de películas con la estructura desarrollada en las prácticas anteriores. Según el argumento de línea de comandos con que se invoque, el programa debe hacer lo siguiente:
+				-Argumentos '-l fichero.xml': lista los títulos de todas las películas contenidas en el fichero.
+				-Argumentos '-L fichero.xml': lista información más detallada acerca de todas las películas contenidas en el fichero (por ejemplo, título, director y año para cada película).
+				-Argumentos '-a fichero': añade una nueva película al fichero. Pide por línea de comandos los datos necesarios de la película.
+    	 */
 
 		if (args.length != 2) {
 		    printHelp();
@@ -92,8 +98,10 @@ public class Films {
 		Films films = new Films();
 		String file = args[1];
 		Document document = films.loadDocument(file);
+		/* Cogemos elemento raíz */
 		Element conjunto = document.getDocumentElement();
 
+		/* Tratamiento de opciones del programa */
 		if ("-l".equals(args[0])) {
 			/* Listado breve de películas */
 		    NodeList peliculas = conjunto.getElementsByTagName("pelicula");
@@ -102,10 +110,11 @@ public class Films {
 		    	System.out.println("Película: " + (pelicula.getElementsByTagName("titulo").item(0)).getTextContent());
 		    }
 		} else if ("-L".equals(args[0])) {
-			/* Listado detallado de películas */
+			/* Listado detallado de películas, utilizamos Element.getElementsByTagName porque Node.getChildNodes() devuelve
+				muchos nodos y así de esta forma tenemos los nodos (dentro de los elementos) que queremos */
 			NodeList peliculas = conjunto.getElementsByTagName("pelicula");
 		    for (int i = 0; i < peliculas.getLength(); i++) {
-		    	/* Node contiene información del DOM y Element de la etiqueta XML (atributos). Casting a Element */
+		    	/* Node contiene información del DOM y Element de la etiqueta XML (atributos), hacemos casting a Element */
 		    	Element pelicula = (Element) peliculas.item(i);
 		    	/* pelicula.getAttribute('...') devuelve un String con el valor del atributo buscado */
 		    	System.out.println("\nPelícula");

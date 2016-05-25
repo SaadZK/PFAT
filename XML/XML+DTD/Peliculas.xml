@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE conjunto SYSTEM "Peliculas.dtd">
-<conjunto>
+<!DOCTYPE peliculas SYSTEM "Peliculas.dtd">
+<peliculas>
 	<pelicula anio="2015" duracion="96m">
 		<titulo>Irrational Man</titulo>
 		<director>Woody Allen</director>
@@ -32,4 +32,4 @@
 		<genero>Aventura</genero>
 		<nacionalidad>Estadounidense</nacionalidad>
 	</pelicula>
-</conjunto>
+</peliculas>
