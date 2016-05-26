@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Elecciones SYSTEM "elecciones.dtd">
+
+<Elecciones tipo="europeas" año="2014">
+  <Partido nombre="Partido Popular" siglas="PP">
+    <Provincia nombre="A Coruña">129814</Provincia>
+    <Provincia nombre="Álava">16978</Provincia>
+    <Provincia nombre="Albacete">50549</Provincia>
+  </Partido>
+  <Partido nombre="Partido Socialista Obrero Español" siglas="PSOE">
+    <Provincia nombre="A Coruña">85117</Provincia>
+    <Provincia nombre="Álava">16115</Provincia>
+    <Provincia nombre="Albacete">41017</Provincia>
+  </Partido>
+</Elecciones>
