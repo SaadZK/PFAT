@@ -148,7 +148,6 @@
 ├── SJS.xml
 └── XML
     ├── DOM
-    │   ├── Films.class
     │   ├── Films.java
     │   ├── Makefile
     │   ├── Peliculas.dtd -> ../XML+DTD/Peliculas.dtd
@@ -161,15 +160,27 @@
     │   ├── Practica4.pdf
     │   └── Validate.java
     └── XPATH+XSLT
-        ├── letras.xml
+        ├── Ejercicios
+        │   ├── DOC1-EJ1.XML
+        │   ├── Ejercicio1.xsl
+        │   ├── Ejercicio2.xsl
+        │   ├── Ejercicio3.xsl
+        │   ├── Ejercicio4.xsl
+        │   ├── Ejercicio5.xsl
+        │   ├── Ejercicio6.xsl
+        │   ├── Ejercicio7.xsl
+        │   ├── Ejercicio9.xsl
+        │   ├── Ejercicios.pdf
+        │   ├── ej1.dtd
+        │   └── ej9.xml
         ├── Makefile
         ├── Peliculas.dtd -> ../XML+DTD/Peliculas.dtd
         ├── Peliculas.xml -> ../XML+DTD/Peliculas.xml
         ├── Peliculas.xsl
-        ├── plantilla-letras.xsl
         ├── Practica5.pdf
-        ├── XSLTProcess.class
-        └── XSLTProcess.java
+        ├── XSLTProcess.java
+        ├── letras.xml
+        └── plantilla-letras.xsl
 
-46 directories, 244 files
+47 directories, 254 files
 ```
